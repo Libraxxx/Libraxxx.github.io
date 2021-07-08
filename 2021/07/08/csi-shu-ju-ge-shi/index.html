@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Libra">
+    <meta name="keywords" content="Libra">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Libra</title>
+    <title>Libra</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -475,19 +475,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <p>数据采集工具csi_tool采集数据并保存为后缀.dat的数据文件，在csi_tool中提供一个c语言函数解析此文件。阅读了c语言的解析代码后发现，数据文件的组织方法与计网中数据十分相似，但略有不同。</p>
+<h1 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h1><p>总体上，整个文件仅由n个bfee组成，巧了，数据文件中应当包含有n个采样信息，这个bfee的意义不言而喻，就是和采样一一对应。</p>
+<p>bfee： <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/43b5ba5d76e0c3868f4a7dd393cdd0e0c77d948ff25e1c27f2935a38219647df/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039323934363736382e706e67"><img src="https://camo.githubusercontent.com/43b5ba5d76e0c3868f4a7dd393cdd0e0c77d948ff25e1c27f2935a38219647df/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039323934363736382e706e67" alt="在这里插入图片描述"></a></p>
+<p>bfee的数据结构如上图所示。</p>
+<p>前<strong>两字节是field_len</strong>，之后<strong>一字节是code</strong>，再之后便是可变长度的field。<strong>field_len等于code+field的字长</strong>。<br><strong>当code为187时，表示field中是信道信息；</strong></p>
+<p>不是187时，表示field中是其他信息。<br>我们关心的是信道信息，其他信息不解析，跳过该bfee即可。</p>
+<p>field： <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/26e98191e2cd37de9d76d6ecb621ab6f3373f39180ac5d5b9d389e8739874bd7/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333030393936362e706e67"><img src="https://camo.githubusercontent.com/26e98191e2cd37de9d76d6ecb621ab6f3373f39180ac5d5b9d389e8739874bd7/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333030393936362e706e67" alt="在这里插入图片描述"></a></p>
+<p>若code等于187，field有如上图数据格式。</p>
+<p>到这里你一定感觉很熟悉了。 field分为<strong>头部和有效载荷(payload)<strong>两部分。</strong>头部有20字节</strong>的固定长度，有效载荷是个可变长度，字长为len。</p>
+<p>头部各字段的数据类型和意义如下表：</p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/7c6a93df785699ae494adafbad81e568fbfb249b45daf699e415f6d72875e33e/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333032373636372e706e673f782d6f73732d70726f636573733d696d6167652f77617465726d61726b2c747970655f5a6d46755a33706f5a57356e6147567064476b2c736861646f775f31302c746578745f6148523063484d364c7939696247396e4c6d4e7a5a473475626d56304c316c31595735456157467554773d3d2c73697a655f31362c636f6c6f725f4646464646462c745f3730"><img src="https://camo.githubusercontent.com/7c6a93df785699ae494adafbad81e568fbfb249b45daf699e415f6d72875e33e/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333032373636372e706e673f782d6f73732d70726f636573733d696d6167652f77617465726d61726b2c747970655f5a6d46755a33706f5a57356e6147567064476b2c736861646f775f31302c746578745f6148523063484d364c7939696247396e4c6d4e7a5a473475626d56304c316c31595735456157467554773d3d2c73697a655f31362c636f6c6f725f4646464646462c745f3730" alt="在这里插入图片描述"></a></p>
+<p>可以见得，头部中包含了主要的信道信息。</p>
+<p>而其中最重要的<strong>csi矩阵</strong>，分为<strong>30个subc</strong>，保存在<strong>有效载荷</strong>中。分别对应30个子载波。</p>
+<p><strong>subc</strong>的结构如下表所示：</p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/3cc70eec74a7495b549fd2c7978143b2805676883a5f3dd03fe0ee7c25e64fa2/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333035373536302e706e67"><img src="https://camo.githubusercontent.com/3cc70eec74a7495b549fd2c7978143b2805676883a5f3dd03fe0ee7c25e64fa2/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333035373536302e706e67" alt="在这里插入图片描述"></a></p>
+<p><strong>复数</strong>的结构：</p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/68694dc0248c9eec743b54e1ba8aa9ffbc3821a34e580c1eb3211543a4a715c8/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333131343731392e706e67"><img src="https://camo.githubusercontent.com/68694dc0248c9eec743b54e1ba8aa9ffbc3821a34e580c1eb3211543a4a715c8/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333131343731392e706e67" alt="在这里插入图片描述"></a></p>
+<p><strong>每个subc的开始会有3位的非数据部分</strong>，因此subc的长度不是字节(8位)的整数倍，这将导致subc这部分的解析需要按比特操作，增加我解析工作的复杂度。</p>
+<p>到这里，整个文件的数据结构都清楚了，开始试着用python来解析run-lxx.dat这个文件。</p>
 
                 
             </div>
@@ -514,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://libraxxx.github.io/2021/07/08/hello-world/">https://libraxxx.github.io/2021/07/08/hello-world/</a>
+                    <a href="https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/">https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,7 +729,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/08/csi-shu-ju-ge-shi/">
+                <a href="/2021/07/08/csi-an-zhuang/">
                     <div class="card-image">
                         
                         
@@ -757,7 +763,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/07/08/hello-world/">
@@ -787,7 +793,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
