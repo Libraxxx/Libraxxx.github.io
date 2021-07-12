@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CSI数据格式, Libra">
+    <meta name="keywords" content="从零开始的Linux WiFi CSITool, Libra">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CSI数据格式 | Libra</title>
+    <title>从零开始的Linux WiFi CSITool | Libra</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CSI数据格式</h1>
+                    <h1 class="description center-align post-title">从零开始的Linux WiFi CSITool</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSI%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/">
-                                <span class="chip bg-color">CSI数据格式</span>
+                            <a href="/tags/CSI/">
+                                <span class="chip bg-color">CSI</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-08
+                    2021-07-12
                 </div>
                 
 
@@ -488,25 +488,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>数据采集工具csi_tool采集数据并保存为后缀.dat的数据文件，在csi_tool中提供一个c语言函数解析此文件。阅读了c语言的解析代码后发现，数据文件的组织方法与计网中数据十分相似，但略有不同。</p>
-<h1 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h1><p>总体上，整个文件仅由n个bfee组成，巧了，数据文件中应当包含有n个采样信息，这个bfee的意义不言而喻，就是和采样一一对应。</p>
-<p>bfee： <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/43b5ba5d76e0c3868f4a7dd393cdd0e0c77d948ff25e1c27f2935a38219647df/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039323934363736382e706e67"><img src="https://camo.githubusercontent.com/43b5ba5d76e0c3868f4a7dd393cdd0e0c77d948ff25e1c27f2935a38219647df/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039323934363736382e706e67"></a></p>
-<p>bfee的数据结构如上图所示。</p>
-<p>前<strong>两字节是field_len</strong>，之后<strong>一字节是code</strong>，再之后便是可变长度的field。<strong>field_len等于code+field的字长</strong>。<br><strong>当code为187时，表示field中是信道信息；</strong></p>
-<p>不是187时，表示field中是其他信息。<br>我们关心的是信道信息，其他信息不解析，跳过该bfee即可。</p>
-<p>field： <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/26e98191e2cd37de9d76d6ecb621ab6f3373f39180ac5d5b9d389e8739874bd7/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333030393936362e706e67"><img src="https://camo.githubusercontent.com/26e98191e2cd37de9d76d6ecb621ab6f3373f39180ac5d5b9d389e8739874bd7/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333030393936362e706e67"></a></p>
-<p>若code等于187，field有如上图数据格式。</p>
-<p>到这里你一定感觉很熟悉了。 field分为<strong>头部和有效载荷(payload)<strong>两部分。</strong>头部有20字节</strong>的固定长度，有效载荷是个可变长度，字长为len。</p>
-<p>头部各字段的数据类型和意义如下表：</p>
-<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/7c6a93df785699ae494adafbad81e568fbfb249b45daf699e415f6d72875e33e/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333032373636372e706e673f782d6f73732d70726f636573733d696d6167652f77617465726d61726b2c747970655f5a6d46755a33706f5a57356e6147567064476b2c736861646f775f31302c746578745f6148523063484d364c7939696247396e4c6d4e7a5a473475626d56304c316c31595735456157467554773d3d2c73697a655f31362c636f6c6f725f4646464646462c745f3730"><img src="https://camo.githubusercontent.com/7c6a93df785699ae494adafbad81e568fbfb249b45daf699e415f6d72875e33e/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333032373636372e706e673f782d6f73732d70726f636573733d696d6167652f77617465726d61726b2c747970655f5a6d46755a33706f5a57356e6147567064476b2c736861646f775f31302c746578745f6148523063484d364c7939696247396e4c6d4e7a5a473475626d56304c316c31595735456157467554773d3d2c73697a655f31362c636f6c6f725f4646464646462c745f3730"></a></p>
-<p>可以见得，头部中包含了主要的信道信息。</p>
-<p>而其中最重要的<strong>csi矩阵</strong>，分为<strong>30个subc</strong>，保存在<strong>有效载荷</strong>中。分别对应30个子载波。</p>
-<p><strong>subc</strong>的结构如下表所示：</p>
-<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/3cc70eec74a7495b549fd2c7978143b2805676883a5f3dd03fe0ee7c25e64fa2/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333035373536302e706e67"><img src="https://camo.githubusercontent.com/3cc70eec74a7495b549fd2c7978143b2805676883a5f3dd03fe0ee7c25e64fa2/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333035373536302e706e67"></a></p>
-<p><strong>复数</strong>的结构：</p>
-<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/68694dc0248c9eec743b54e1ba8aa9ffbc3821a34e580c1eb3211543a4a715c8/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333131343731392e706e67"><img src="https://camo.githubusercontent.com/68694dc0248c9eec743b54e1ba8aa9ffbc3821a34e580c1eb3211543a4a715c8/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303139303832313039333131343731392e706e67"></a></p>
-<p><strong>每个subc的开始会有3位的非数据部分</strong>，因此subc的长度不是字节(8位)的整数倍，这将导致subc这部分的解析需要按比特操作，增加我解析工作的复杂度。</p>
-<p>到这里，整个文件的数据结构都清楚了，开始试着用python来解析run-lxx.dat这个文件。</p>
+                <h1 id="主要参考"><a href="#主要参考" class="headerlink" title="主要参考"></a>主要参考</h1><h3 id="1-官方资料"><a href="#1-官方资料" class="headerlink" title="1.官方资料"></a>1.官方资料</h3><h4 id="1-1-官方Q-amp-A"><a href="#1-1-官方Q-amp-A" class="headerlink" title="1.1 官方Q&amp;A"></a>1.1 官方Q&amp;A</h4><p>链接：<a target="_blank" rel="noopener" href="http://dhalperi.github.io/linux-80211n-csitool/faq.html">http://dhalperi.github.io/linux-80211n-csitool/faq.html</a></p>
+<p>点<code>+</code>号看详细信息，重点关注<code>2</code>和<code>13</code></p>
+<h4 id="1-2-官方GitHub"><a href="#1-2-官方GitHub" class="headerlink" title="1.2 官方GitHub"></a>1.2 官方GitHub</h4><p>链接：<a target="_blank" rel="noopener" href="https://github.com/dhalperi/linux-80211n-csitool-supplementary/tree/master/injection">https://github.com/dhalperi/linux-80211n-csitool-supplementary/</a></p>
+<h3 id="2-亲测可用安装教程"><a href="#2-亲测可用安装教程" class="headerlink" title="2. 亲测可用安装教程"></a>2. 亲测可用安装教程</h3><h4 id="2-1-灵魂序曲的教程"><a href="#2-1-灵魂序曲的教程" class="headerlink" title="2.1 灵魂序曲的教程"></a>2.1 <strong>灵魂序曲的教程</strong></h4><p>​    虽然有的步骤有些麻烦，但是AP模式亲测可用，monitor模式可能是我驱动没改对，我这里收不到数，但也许教程本身没问题是我的问题。我也没过深究。</p>
+<p>链接： <a target="_blank" rel="noopener" href="https://blog.csdn.net/u014645508/article/details/81359409">https://blog.csdn.net/u014645508/article/details/81359409</a></p>
+<h4 id="2-2-沃一德的教程"><a href="#2-2-沃一德的教程" class="headerlink" title="2.2 沃一德的教程"></a>2.2 <strong>沃一德的教程</strong></h4><p>比较精简，但monitor模式博主是亲测可用的。</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20604671/article/details/53996239">https://blog.csdn.net/qq_20604671/article/details/53996239</a></p>
+<h1 id="Linux基础及CSI相关知识的学习"><a href="#Linux基础及CSI相关知识的学习" class="headerlink" title="Linux基础及CSI相关知识的学习"></a>Linux基础及CSI相关知识的学习</h1><h3 id="1-Linux基础"><a href="#1-Linux基础" class="headerlink" title="1. Linux基础"></a>1. Linux基础</h3><h4 id="1-1-视频教程"><a href="#1-1-视频教程" class="headerlink" title="1.1 视频教程"></a>1.1 视频教程</h4><p><strong>兄弟连的linux教程：</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mW411i7Qf">https://www.bilibili.com/video/BV1mW411i7Qf</a><br>看P1-P26左右基本就可以了，看视频虽然更容易理解，但是效率比较低，而且很容易犯困。</p>
+<h4 id="1-2-文字教程"><a href="#1-2-文字教程" class="headerlink" title="1.2 文字教程"></a>1.2 文字教程</h4><p><strong>Cyc的文字教程：</strong><a target="_blank" rel="noopener" href="http://www.cyc2018.xyz/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/Linux.html#%E5%89%8D%E8%A8%80">http://www.cyc2018.xyz/</a><br>无论是什么教程核心，最重要的就是自己敲一遍，看看效果，加深印象！！！！</p>
+<h3 id="2-CSI相关"><a href="#2-CSI相关" class="headerlink" title="2. CSI相关"></a>2. CSI相关</h3><h4 id="2-1-802-11n协议"><a href="#2-1-802-11n协议" class="headerlink" title="2.1 802.11n协议"></a>2.1 802.11n协议</h4><p><strong>IEEE 802.11n协议：</strong><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&amp;arnumber=5307322&amp;ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2RvY3VtZW50LzUzMDczMjI=">https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&amp;arnumber=5307322</a></p>
+<p>对802.11协议以及802.11n协议有一些初步了解，重点是<code>7-25</code>。</p>
+<h4 id="2-2-CSI简介"><a href="#2-2-CSI简介" class="headerlink" title="2.2 CSI简介"></a>2.2 CSI简介</h4><p>Wi-Fi CSI的那些事：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/nku_zhaolinsheng/article/details/75210563">https://blog.csdn.net/nku_zhaolinsheng/article/details/75210563</a><br>通过读paper已经对CSI肯定有一些了解了，但是这里重点是第一部分，从OSI模型的角度去看获取CSI的原理。</p>
+<h1 id="一、Ubuntu安装"><a href="#一、Ubuntu安装" class="headerlink" title="一、Ubuntu安装"></a>一、Ubuntu安装</h1><p>​    如果我们想要收集CSI数据，首先就需要安装符合要求的操作系统，根据CSI_Tool官方文档，需要安装的系统内核版本要在<code>3.2~4.2</code>之间。</p>
+<p>​    此次我们安装的操作系统为<code>ubuntu-14.04.1</code>，系统内核版本为<code>3.13</code>。</p>
+<p>​    系统下载地址为：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1eTu0OP8Jb1TwGJFkBZnr1w">https://pan.baidu.com/s/1eTu0OP8Jb1TwGJFkBZnr1w</a> 提取码：oi6x</p>
+<p>​    具体的安装方法自行百度，在此不在赘述。</p>
+<h1 id="二、CSI-Tool安装"><a href="#二、CSI-Tool安装" class="headerlink" title="二、CSI Tool安装"></a>二、CSI Tool安装</h1><p>安装好ubantu系统之后（系统版本和内核版本符合要求），接下来的就是安装<code>CSI_Tools</code>，如果你是按照上面的步骤来进行安装系统，那么接下来就不用有任何的顾虑，直接<code>无脑执行 </code>下面的命令就可以，一个一个的执行，有时候会有一些提示也不要管，那不是错误，总之闭着眼睛执行就行了，大家对比官方的可能觉得我的怎么这么少，因为官方安有很多是为了提示信息啥的，对用功能的实现没有影响，为了简单我都直接跳过了。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt-get install gcc make linux-headers-$(uname -r) git-core<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">CSITOOL_KERNEL_TAG=csitool-$(uname -r | cut -d . -f 1-2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>下面一步是去GitHub下载CSI Tool，推荐直接网盘下载。直接在GitHub下载实在是太慢了（毕竟1个多G）！！！</p>
+<p>百度网盘链接：链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15vt73N0PQeJkyvSjSgAU4Q">https://pan.baidu.com/s/15vt73N0PQeJkyvSjSgAU4Q</a> 提取码: bq94 </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/dhalperi/linux-80211n-csitool.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>下载之后进行解压</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar -zxvf /linux-80211n-csitool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后进入文件夹</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd linux-80211n-csitool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">git checkout ${CSITOOL_KERNEL_TAG}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">make -C /lib/modules/$(uname -r)/build M=$(pwd)/drivers/net/wireless/iwlwifi modules<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在这一步make编译的时候，会提示<code> Can’t read private key</code>，不必理会，官方也说了没事：<a target="_blank" rel="noopener" href="https://dhalperi.github.io/linux-80211n-csitool/installation.html%E3%80%82%E9%81%87%E5%88%B0%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%EF%BC%9Ahttps://blog.csdn.net/zhangpeterx/article/details/88044404">https://dhalperi.github.io/linux-80211n-csitool/installation.html。遇到这个问题可以参考：https://blog.csdn.net/zhangpeterx/article/details/88044404</a></p>
+<p>到此为止环境配置完毕。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo make -C /lib/modules/$(uname -r)/build M=$(pwd)/drivers/net/wireless/iwlwifi INSTALL_MOD_DIR=updates modules_install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h1 id="三、AP模式收数"><a href="#三、AP模式收数" class="headerlink" title="三、AP模式收数"></a>三、AP模式收数</h1><h4 id="1-配置MAC"><a href="#1-配置MAC" class="headerlink" title="1.配置MAC"></a>1.配置MAC</h4><p>要求路由器无密码，因为CSI Tool的固件没有足够的代码空间来存储波束成形软件路径（用于测量CSI）和加密软件路径（用于WEP / WPA / WPA2 /等网络）。</p>
+<p>若未修改驱动，需要输入，否则可以跳过</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo modprobe -r iwlwifi mac80211<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这一步执行之后就已经搜不到无线网了。</p>
+<h4 id="2-配置连接属性"><a href="#2-配置连接属性" class="headerlink" title="2.配置连接属性"></a>2.配置连接属性</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo modprobe iwlwifi connector_log=0x1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这一步执行之后可以搜到无线网，但是无论是有无密码的都连不上。</p>
+<h4 id="3-配置连接无线网"><a href="#3-配置连接无线网" class="headerlink" title="3.配置连接无线网"></a>3.配置连接无线网</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo killall wpa_supplicant<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>现在可以连接上不加密的无线网了.</code>。</p>
+<h4 id="4-启动工具"><a href="#4-启动工具" class="headerlink" title="4.启动工具"></a>4.启动工具</h4><p>执行下面的命令开始记录数据：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo linux-80211n-csitool-supplementary/netlink/log_to_file csi.dat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>其中 <code>csi.dat</code> 是文件名，可任意，他会出现在你的用户目录下，就是你安装这个工具的同级文件夹下。</p>
+<h3 id="5-ping-路由器"><a href="#5-ping-路由器" class="headerlink" title="5.ping 路由器"></a>5.ping 路由器</h3><p>另开一个终端，执行下面的命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo ping 101.6.69.105 -i 0.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>101.6.69.105是路由的ip地址，-i 0.2表示发送间隔0.2s，<code>如果间隔小于0.5s需要加上sudo</code>。</p>
 
                 
             </div>
@@ -533,7 +574,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/">https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/</a>
+                    <a href="https://libraxxx.github.io/2021/07/12/cong-ling-kai-shi-de-linux-wifi-csitool/">https://libraxxx.github.io/2021/07/12/cong-ling-kai-shi-de-linux-wifi-csitool/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,8 +612,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CSI%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/">
-                                    <span class="chip bg-color">CSI数据格式</span>
+                                <a href="/tags/CSI/">
+                                    <span class="chip bg-color">CSI</span>
                                 </a>
                             
                         </div>
@@ -1005,9 +1046,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/12/cong-ling-kai-shi-de-linux-wifi-csitool/">
                     <div class="card-image">
@@ -1025,9 +1067,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1040,6 +1082,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1058,13 +1101,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/17/csi-an-zhuang/">
+                <a href="/2021/07/08/csi-shu-ju-ge-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="CSI安装方法">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CSI数据格式">
                         
-                        <span class="card-title">CSI安装方法</span>
+                        <span class="card-title">CSI数据格式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1075,7 +1118,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-08
                             </span>
                         <span class="publish-author">
                             
@@ -1092,8 +1135,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSI-Tools%E5%AE%89%E8%A3%85/">
-                        <span class="chip bg-color">CSI_Tools安装</span>
+                    <a href="/tags/CSI%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/">
+                        <span class="chip bg-color">CSI数据格式</span>
                     </a>
                     
                 </div>
