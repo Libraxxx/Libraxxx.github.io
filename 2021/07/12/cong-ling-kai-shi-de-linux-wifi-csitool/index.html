@@ -488,7 +488,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="主要参考"><a href="#主要参考" class="headerlink" title="主要参考"></a>主要参考</h1><h3 id="1-官方资料"><a href="#1-官方资料" class="headerlink" title="1.官方资料"></a>1.官方资料</h3><h4 id="1-1-官方Q-amp-A"><a href="#1-1-官方Q-amp-A" class="headerlink" title="1.1 官方Q&amp;A"></a>1.1 官方Q&amp;A</h4><p>链接：<a target="_blank" rel="noopener" href="http://dhalperi.github.io/linux-80211n-csitool/faq.html">http://dhalperi.github.io/linux-80211n-csitool/faq.html</a></p>
+                <h1 id="本文主要参考"><a href="#本文主要参考" class="headerlink" title="本文主要参考"></a>本文主要参考</h1><h3 id="1-官方资料"><a href="#1-官方资料" class="headerlink" title="1.官方资料"></a>1.官方资料</h3><h4 id="1-1-官方Q-amp-A"><a href="#1-1-官方Q-amp-A" class="headerlink" title="1.1 官方Q&amp;A"></a>1.1 官方Q&amp;A</h4><p>链接：<a target="_blank" rel="noopener" href="http://dhalperi.github.io/linux-80211n-csitool/faq.html">http://dhalperi.github.io/linux-80211n-csitool/faq.html</a></p>
 <p>点<code>+</code>号看详细信息，重点关注<code>2</code>和<code>13</code></p>
 <h4 id="1-2-官方GitHub"><a href="#1-2-官方GitHub" class="headerlink" title="1.2 官方GitHub"></a>1.2 官方GitHub</h4><p>链接：<a target="_blank" rel="noopener" href="https://github.com/dhalperi/linux-80211n-csitool-supplementary/tree/master/injection">https://github.com/dhalperi/linux-80211n-csitool-supplementary/</a></p>
 <h3 id="2-亲测可用安装教程"><a href="#2-亲测可用安装教程" class="headerlink" title="2. 亲测可用安装教程"></a>2. 亲测可用安装教程</h3><h4 id="2-1-灵魂序曲的教程"><a href="#2-1-灵魂序曲的教程" class="headerlink" title="2.1 灵魂序曲的教程"></a>2.1 <strong>灵魂序曲的教程</strong></h4><p>​    虽然有的步骤有些麻烦，但是AP模式亲测可用，monitor模式可能是我驱动没改对，我这里收不到数，但也许教程本身没问题是我的问题。我也没过深究。</p>
@@ -523,11 +523,10 @@
 
 <pre class="line-numbers language-none"><code class="language-none">make -C /lib/modules/$(uname -r)/build M=$(pwd)/drivers/net/wireless/iwlwifi modules<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>在这一步make编译的时候，会提示<code> Can’t read private key</code>，不必理会，官方也说了没事：<a target="_blank" rel="noopener" href="https://dhalperi.github.io/linux-80211n-csitool/installation.html%E3%80%82%E9%81%87%E5%88%B0%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%EF%BC%9Ahttps://blog.csdn.net/zhangpeterx/article/details/88044404">https://dhalperi.github.io/linux-80211n-csitool/installation.html。遇到这个问题可以参考：https://blog.csdn.net/zhangpeterx/article/details/88044404</a></p>
+<p>在这一步make编译的时候，会提示<code> Can’t read private key</code>，不必理会，官方也说了没事，可以參考以下官方文档：<a target="_blank" rel="noopener" href="https://dhalperi.github.io/linux-80211n-csitool/installation.html%E3%80%82">https://dhalperi.github.io/linux-80211n-csitool/installation.html。</a></p>
+<p>遇到这个问题可以参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangpeterx/article/details/88044404">https://blog.csdn.net/zhangpeterx/article/details/88044404</a></p>
 <p>到此为止环境配置完毕。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo make -C /lib/modules/$(uname -r)/build M=$(pwd)/drivers/net/wireless/iwlwifi INSTALL_MOD_DIR=updates modules_install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
 
 <h1 id="三、AP模式收数"><a href="#三、AP模式收数" class="headerlink" title="三、AP模式收数"></a>三、AP模式收数</h1><h4 id="1-配置MAC"><a href="#1-配置MAC" class="headerlink" title="1.配置MAC"></a>1.配置MAC</h4><p>要求路由器无密码，因为CSI Tool的固件没有足够的代码空间来存储波束成形软件路径（用于测量CSI）和加密软件路径（用于WEP / WPA / WPA2 /等网络）。</p>
 <p>若未修改驱动，需要输入，否则可以跳过</p>
@@ -539,7 +538,7 @@
 <p>这一步执行之后可以搜到无线网，但是无论是有无密码的都连不上。</p>
 <h4 id="3-配置连接无线网"><a href="#3-配置连接无线网" class="headerlink" title="3.配置连接无线网"></a>3.配置连接无线网</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo killall wpa_supplicant<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><code>现在可以连接上不加密的无线网了.</code>。</p>
+<p><code>现在可以连接上不加密的无线网了</code>。</p>
 <h4 id="4-启动工具"><a href="#4-启动工具" class="headerlink" title="4.启动工具"></a>4.启动工具</h4><p>执行下面的命令开始记录数据：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo linux-80211n-csitool-supplementary/netlink/log_to_file csi.dat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
