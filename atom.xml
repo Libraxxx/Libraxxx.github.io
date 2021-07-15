@@ -144,4 +144,31 @@
     
   </entry>
   
+  <entry>
+    <title>DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解</title>
+    <link href="https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/"/>
+    <id>https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/</id>
+    <published>2021-03-15T12:18:35.000Z</published>
+    <updated>2021-07-15T07:08:41.996Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;举个例子来理解吧。&lt;/p&gt;
+&lt;p&gt;（1）首先，先建立一个&lt;code&gt;apple.html&lt;/code&gt;文件，内容如下:&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-html&quot; data-language=&quot;html&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="Django" scheme="https://libraxxx.github.io/categories/Django/"/>
+    
+    
+    <category term="Django  块标签  {% block name%}{endblock}" scheme="https://libraxxx.github.io/tags/Django-%E5%9D%97%E6%A0%87%E7%AD%BE-block-name-endblock/"/>
+    
+  </entry>
+  
 </feed>
