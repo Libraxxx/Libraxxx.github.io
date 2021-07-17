@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解, Libra">
+    <meta name="keywords" content="JavaScript执行机制, Libra">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解 | Libra</title>
+    <title>JavaScript执行机制 | Libra</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解</h1>
+                    <h1 class="description center-align post-title">JavaScript执行机制</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Django-%E5%9D%97%E6%A0%87%E7%AD%BE-block-name-endblock/">
-                                <span class="chip bg-color">Django  块标签  {% block name%}{endblock}</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -446,8 +446,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Django/" class="post-category">
-                                Django
+                            <a href="/categories/web/" class="post-category">
+                                web
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-15
+                    2021-03-21
                 </div>
                 
 
@@ -483,43 +483,297 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>举个例子来理解吧。</p>
-<p>（1）首先，先建立一个<code>apple.html</code>文件，内容如下:</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zn-CN<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            {% block content %}
-            {% endblock %}
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h3 id="一、关于JavaScript"><a href="#一、关于JavaScript" class="headerlink" title="一、关于JavaScript"></a>一、关于JavaScript</h3><p>JavaScript是一门<strong>单线程</strong>语言，在最新的HTML5中提出了Web-Worker，但JavaScript是单线程这一核心仍未改变。所以一切JavaScript版的”多线程”都是用单线程模拟出来的，一切javascript多线程都是纸老虎！</p>
+<h3 id="二、JavaScript事件循环"><a href="#二、JavaScript事件循环" class="headerlink" title="二、JavaScript事件循环"></a>二、JavaScript事件循环</h3><p>既然JS是单线程，那就像只有一个窗口的银行，客户需要排队一个一个办理业务，同理JS任务也要一个一个顺序执行。如果一个任务耗时过长，那么后一个任务也必须等着。那么问题来了，假如我们想浏览新闻，但是新闻包含的超清图片加载很慢，难道我们的网页要一直卡着直到图片完全显示出来？因此聪明的程序员将任务分为两类：</p>
+<ul>
+<li>同步任务</li>
+<li>异步任务</li>
+</ul>
+<p>当我们打开网站时，网页的渲染过程就是一大堆同步任务，比如页面骨架和页面元素的渲染。而像加载图片音乐之类占用资源大耗时久的任务，就是异步任务。关于这部分有严格的文字定义，但本文的目的是用最小的学习成本彻底弄懂执行机制，所以我们用导图来说明：</p>
+<img src="/2021/03/21/javascript-zhi-xing-ji-zhi/js.png">
 
-<p>（2）再建立一个<code>boom.html</code>文件,内容如下：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">{% extend 'apple.html' %}
-{% block content %}
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
-            Django 块标签的理解
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-{% endblock %}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>导图要表达的内容用文字来表述的话：</p>
+<ul>
+<li><p>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入<code>Event Table</code>并注册函数。</p>
+</li>
+<li><p>当指定的事情完成时，<code>Event Table</code>会将这个函数移入<code>Event Queue</code>。</p>
+</li>
+<li><p>主线程内的任务执行完毕为空，会去<code>Event Queue</code>读取对应的函数，进入主线程执行。</p>
+</li>
+<li><p>上述过程会不断重复，也就是常说的<code>Event Loop</code>(事件循环)。</p>
+</li>
+</ul>
+<p>我们不禁要问了，那怎么知道主线程执行栈为空啊？js引擎存在<code>monitoring process进程</code>，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去<code>Event Queue</code>那里检查是否有等待被调用的函数。</p>
+<p>说了这么多文字，不如直接一段代码更直白：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    url<span class="token operator">:</span>www<span class="token punctuation">.</span>javascript<span class="token punctuation">.</span>com<span class="token punctuation">,</span>
+    data<span class="token operator">:</span>data<span class="token punctuation">,</span>
+    <span class="token function-variable function">success</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'发送成功!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'代码执行结束'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>那么输出的网页就会变成如下。</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zn-CN<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
-        		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
-            		Django 块标签的理解
-        		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面是一段简易的<code>ajax</code>请求代码：</p>
+<ul>
+<li>ajax进入Event Table，注册回调函数<code>success</code>。</li>
+<li>执行<code>console.log('代码执行结束')</code>。</li>
+<li>ajax事件完成，回调函数<code>success</code>进入Event Queue。</li>
+<li>主线程从Event Queue读取回调函数<code>success</code>并执行。</li>
+</ul>
+<p>相信通过上面的文字和代码，你已经对js的执行顺序有了初步了解。接下来我们来研究进阶话题：<code>setTimeout</code>。</p>
+<h3 id="三、setTimeout"><a href="#三、setTimeout" class="headerlink" title="三、setTimeout"></a>三、setTimeout</h3><p>大名鼎鼎的<code>setTimeout</code>无需再多言，大家对他的第一印象就是异步可以延时执行，我们经常这么实现延时3秒执行：</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">setTimeout(() =&gt; {
+    console.log('延时3秒');
+},3000)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>换句话说，就是<code>boom.html</code>的块标签里面的内容完全代替了<code>apple.html</code>里面的块标签。</p>
+<p>渐渐的<code>setTimeout</code>用的地方多了，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这又咋回事啊？</p>
+<p>先看一个例子：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'执行console'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据前面我们的结论，<code>setTimeout</code>是异步的，应该先执行<code>console.log</code>这个同步任务，所以我们的结论是：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//执行console</span>
+<span class="token comment">//task()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>去验证一下，结果正确！ 然后我们修改一下前面的代码：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">task</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span>
+
+<span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10000000</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>乍一看其实差不多嘛，但我们把这段代码在chrome执行一下，却发现控制台执行<code>task()</code>需要的时间远远超过3秒，说好的延时三秒，为啥现在需要这么长时间啊？</p>
+<p>这时候我们需要重新理解<code>setTimeout</code>的定义。我们先说上述代码是怎么执行的：</p>
+<ul>
+<li><p><code>task()</code>进入Event Table并注册,计时开始。</p>
+</li>
+<li><p>执行<code>sleep</code>函数，很慢，非常慢，计时仍在继续。</p>
+</li>
+<li><p>3秒到了，计时事件<code>timeout</code>完成，<code>task()</code>进入Event Queue，但是<code>sleep</code>也太慢了吧，还没执行完，只好等着。</p>
+</li>
+<li><p><code>sleep</code>终于执行完了，<code>task()</code>终于从Event Queue进入了主线程执行。</p>
+</li>
+</ul>
+<p>上述的流程走完，我们知道<code>setTimeout</code>这个函数，是经过指定时间后，把要执行的任务(本例中为<code>task()</code>)加入到Event Queue中，又因为是单线程任务要一个一个执行，如果前面的任务需要的时间太久，那么只能等着，导致真正的延迟时间远远大于3秒。</p>
+<p>我们还经常遇到<code>setTimeout(fn,0)</code>这样的代码，0秒后执行又是什么意思呢？是不是可以立即执行呢？</p>
+<p>答案是不会的，<code>setTimeout(fn,0)</code>的含义是，指定某个任务在主线程最早可得的空闲时间执行，意思就是不用再等多少秒了，只要主线程执行栈内的同步任务全部执行完成，栈为空就马上执行。举例说明：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//代码1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'先执行这里'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'执行啦'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//代码2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'先执行这里'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'执行啦'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>代码1的输出结果是：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//先执行这里</span>
+<span class="token comment">//执行啦</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>代码2的输出结果是：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//先执行这里</span>
+<span class="token comment">// ... 3s later</span>
+<span class="token comment">// 执行啦</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>关于<code>setTimeout</code>要补充的是，即便主线程为空，0毫秒实际上也是达不到的。根据HTML的标准，最低是4毫秒。有兴趣的同学可以自行了解。</p>
+<h3 id="四、setInterval"><a href="#四、setInterval" class="headerlink" title="四、setInterval"></a>四、setInterval</h3><p>上面说完了<code>setTimeout</code>，当然不能错过它的孪生兄弟<code>setInterval</code>。他俩差不多，只不过后者是循环的执行。对于执行顺序来说，<code>setInterval</code>会每隔指定的时间将注册的函数置入Event Queue，如果前面的任务耗时太久，那么同样需要等待。</p>
+<p>唯一需要注意的一点是，对于<code>setInterval(fn,ms)</code>来说，我们已经知道不是每过<code>ms</code>秒会执行一次<code>fn</code>，而是每过<code>ms</code>秒，会有<code>fn</code>进入Event Queue。一旦**<code>setInterval</code>的回调函数<code>fn</code>执行时间超过了延迟时间<code>ms</code>，那么就完全看不出来有时间间隔了**。这句话请读者仔细品味。</p>
+<h3 id="五、Promise与process-nextTick-callback"><a href="#五、Promise与process-nextTick-callback" class="headerlink" title="五、Promise与process.nextTick(callback)"></a>五、Promise与process.nextTick(callback)</h3><p>传统的定时器我们已经研究过了，接着我们探究<code>Promise</code>与<code>process.nextTick(callback)</code>的表现。</p>
+<p><code>Promise</code>的定义和功能本文不再赘述，不了解的读者可以学习一下阮一峰老师的<a href="https://link.juejin.cn/?target=http://es6.ruanyifeng.com/%23docs/promise">Promise</a>。而<code>process.nextTick(callback)</code>类似node.js版的”setTimeout”，在事件循环的下一次循环中调用 callback 回调函数。</p>
+<p>我们进入正题，除了广义的<code>同步任务</code>和<code>异步任务</code>，我们对任务有更精细的定义：</p>
+<ul>
+<li><code>macro-task(宏任务)</code>：包括整体代码script，setTimeout，setInterval</li>
+<li><code>micro-task(微任务)</code>：Promise，process.nextTick</li>
+</ul>
+<p>不同类型的任务会进入对应的Event Queue，比如<code>setTimeout</code>和<code>setInterval</code>会进入相同的Event Queue。</p>
+<p>事件循环的顺序，决定js代码的执行顺序。进入整体代码(宏任务)后，开始第一次循环。接着执行所有的微任务。然后再次从宏任务开始，找到其中一个任务队列执行完毕，再执行所有的微任务。听起来有点绕，我们用文章最开始的一段代码说明：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'then'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'console'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>这段代码作为宏任务，进入主线程。</p>
+</li>
+<li><p>先遇到<code>setTimeout</code>，那么将其回调函数注册后分发到宏任务Event Queue。(注册过程与上同，下文不再描述)</p>
+</li>
+<li><p>接下来遇到了<code>Promise</code>，<code>new Promise</code>立即执行，<code>then</code>函数分发到微任务Event Queue。</p>
+</li>
+<li><p>遇到<code>console.log()</code>，立即执行。</p>
+</li>
+<li><p>好啦，整体代码script作为第一个宏任务执行结束，看看有哪些微任务？我们发现了<code>then</code>在微任务Event Queue里面，执行。</p>
+</li>
+<li><p>ok，第一轮事件循环结束了，我们开始第二轮循环，当然要从宏任务Event Queue开始。我们发现了宏任务Event Queue中<code>setTimeout</code>对应的回调函数，立即执行。</p>
+</li>
+<li><p>结束。</p>
+</li>
+</ul>
+<p>事件循环，宏任务，微任务的关系如图所示：</p>
+<img src="/2021/03/21/javascript-zhi-xing-ji-zhi/task.png" style="zoom:50%;">
+
+<p>我们来分析一段较复杂的代码，看看你是否真的掌握了js的执行机制：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'6'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'7'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'8'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'9'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'10'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'11'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'12'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第一轮事件循环流程分析如下：</p>
+<ul>
+<li><p>整体script作为第一个宏任务进入主线程，遇到<code>console.log</code>，输出1。</p>
+</li>
+<li><p>遇到<code>setTimeout</code>，其回调函数被分发到宏任务Event Queue中。我们暂且记为<code>setTimeout1</code>。</p>
+</li>
+<li><p>遇到<code>process.nextTick()</code>，其回调函数被分发到微任务Event Queue中。我们记为<code>process1</code>。</p>
+</li>
+<li><p>遇到<code>Promise</code>，<code>new Promise</code>直接执行，输出7。<code>then</code>被分发到微任务Event Queue中。我们记为<code>then1</code>。</p>
+</li>
+<li><p>又遇到了<code>setTimeout</code>，其回调函数被分发到宏任务Event Queue中，我们记为<code>setTimeout2</code>。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">宏任务Event Queue</th>
+<th align="center">微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">setTimeout1</td>
+<td align="center">process1</td>
+</tr>
+<tr>
+<td align="center">setTimeout2</td>
+<td align="center">then1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>上表是第一轮事件循环宏任务结束时各Event Queue的情况，此时已经输出了1和7。</li>
+<li>我们发现了<code>process1</code>和<code>then1</code>两个微任务。</li>
+<li>执行<code>process1</code>,输出6。</li>
+<li>执行<code>then1</code>，输出8。</li>
+</ul>
+<p>好了，第一轮事件循环正式结束，这一轮的结果是输出1，7，6，8。那么第二轮时间循环从<code>setTimeout1</code>宏任务开始：</p>
+<ul>
+<li>首先输出2。接下来遇到了<code>process.nextTick()</code>，同样将其分发到微任务Event Queue中，记为<code>process2</code>。<code>new Promise</code>立即执行输出4，<code>then</code>也分发到微任务Event Queue中，记为<code>then2</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">宏任务Event Queue</th>
+<th align="center">微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">setTimeout2</td>
+<td align="center">process2</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">then2</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>第二轮事件循环宏任务结束，我们发现有<code>process2</code>和<code>then2</code>两个微任务可以执行。</p>
+</li>
+<li><p>输出3。</p>
+</li>
+<li><p>输出5。</p>
+</li>
+<li><p>第二轮事件循环结束，第二轮输出2，4，3，5。</p>
+</li>
+<li><p>第三轮事件循环开始，此时只剩setTimeout2了，执行。</p>
+</li>
+<li><p>直接输出9。</p>
+</li>
+<li><p>将<code>process.nextTick()</code>分发到微任务Event Queue中。记为<code>process3</code>。</p>
+</li>
+<li><p>直接执行<code>new Promise</code>，输出11。</p>
+</li>
+<li><p>将<code>then</code>分发到微任务Event Queue中，记为<code>then3</code>。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">宏任务Event Queue</th>
+<th align="center">微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">process3</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">then3</td>
+</tr>
+</tbody></table>
+<ul>
+<li>第三轮事件循环宏任务执行结束，执行两个微任务<code>process3</code>和<code>then3</code>。</li>
+<li>输出10。</li>
+<li>输出12。</li>
+<li>第三轮事件循环结束，第三轮输出9，11，10，12。</li>
+</ul>
+<p>整段代码，共进行了三次事件循环，完整的输出为<code>1，7，6，8，2，4，3，5，9，11，10，12</code>。 (请注意，node环境下的事件监听依赖libuv与前端环境不完全相同，输出顺序可能会有误差)</p>
+<h3 id="六、写在最后"><a href="#六、写在最后" class="headerlink" title="六、写在最后"></a>六、写在最后</h3><p><strong>（1）JS的异步</strong></p>
+<p>我们从最开头就说javascript是一门单线程语言，不管是什么新框架新语法糖实现的所谓异步，其实都是用同步的方法去模拟的，牢牢把握住单线程这点非常重要。</p>
+<p><strong>（2）事件循环Event Loop</strong></p>
+<p>事件循环是js实现异步的一种方法，也是js的执行机制。</p>
+<p><strong>（3）JS的执行和运行</strong></p>
+<p>执行和运行有很大的区别，javascript在不同的环境下，比如node，浏览器，Ringo等等，执行方式是不同的。而运行大多指javascript解析引擎，是统一的。</p>
+<p><strong>（4）setImmediate</strong></p>
+<p>微任务和宏任务还有很多种类，比如<code>setImmediate</code>等等，执行都是有共同点的，有兴趣的同学可以自行了解。</p>
+<p><strong>（5）最后的最后</strong></p>
+<ul>
+<li>javascript是一门单线程语言</li>
+<li>Event Loop是javascript的执行机制</li>
+</ul>
 
                 
             </div>
@@ -546,7 +800,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/">https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/</a>
+                    <a href="https://libraxxx.github.io/2021/03/21/javascript-zhi-xing-ji-zhi/">https://libraxxx.github.io/2021/03/21/javascript-zhi-xing-ji-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -584,8 +838,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Django-%E5%9D%97%E6%A0%87%E7%AD%BE-block-name-endblock/">
-                                    <span class="chip bg-color">Django  块标签  {% block name%}{endblock}</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -1022,13 +1276,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/21/javascript-zhi-xing-ji-zhi/">
+                <a href="/2021/04/02/yuan-xing-lian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript执行机制">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="原型链">
                         
-                        <span class="card-title">JavaScript执行机制</span>
+                        <span class="card-title">原型链</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1039,7 +1293,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
                         </span>
                         <span class="publish-author">
                             
@@ -1056,8 +1310,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                        <span class="chip bg-color">原型链</span>
                     </a>
                     
                 </div>
@@ -1068,7 +1322,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/">
@@ -1102,7 +1356,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
