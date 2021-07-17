@@ -170,6 +170,114 @@
   </entry>
   
   <entry>
+    <title>闭包</title>
+    <link href="https://libraxxx.github.io/2021/04/03/bi-bao/"/>
+    <id>https://libraxxx.github.io/2021/04/03/bi-bao/</id>
+    <published>2021-04-03T06:49:30.000Z</published>
+    <updated>2021-07-17T03:55:14.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;如何产生闭包？&quot;&gt;&lt;a href=&quot;#如何产生闭包？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    
+    
+    <category term="闭包" scheme="https://libraxxx.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>显示原型与隐式原型</title>
+    <link href="https://libraxxx.github.io/2021/04/03/xian-shi-yuan-xing-yu-yin-shi-yuan-xing/"/>
+    <id>https://libraxxx.github.io/2021/04/03/xian-shi-yuan-xing-yu-yin-shi-yuan-xing/</id>
+    <published>2021-04-03T02:47:00.000Z</published>
+    <updated>2021-07-17T04:09:44.455Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;显式原型与隐式原型&quot;&gt;&lt;a href=&quot;#显式原型与隐式原型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    
+    
+    <category term="显示原型" scheme="https://libraxxx.github.io/tags/%E6%98%BE%E7%A4%BA%E5%8E%9F%E5%9E%8B/"/>
+    
+    <category term="隐式原型" scheme="https://libraxxx.github.io/tags/%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>执行上下文与执行上下文栈</title>
+    <link href="https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/"/>
+    <id>https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/</id>
+    <published>2021-04-03T02:33:20.000Z</published>
+    <updated>2021-07-17T03:46:48.773Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;执行上下文与执行上下文栈&quot;&gt;&lt;a href=&quot;#执行上下文与执行上下文栈&quot; class=&quot;headerlink&quot; title=&quot;执行上下文与执行上下文栈&quot;&gt;&lt;/a&gt;执行上下文与执行上下文栈&lt;/h4&gt;&lt;h4 id=&quot;变量提升&quot;&gt;&lt;a href=&quot;#变量提升&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    
+    
+    <category term="执行上下文" scheme="https://libraxxx.github.io/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    
+    <category term="执行上下文栈" scheme="https://libraxxx.github.io/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原型链</title>
+    <link href="https://libraxxx.github.io/2021/04/02/yuan-xing-lian/"/>
+    <id>https://libraxxx.github.io/2021/04/02/yuan-xing-lian/</id>
+    <published>2021-04-02T13:39:12.000Z</published>
+    <updated>2021-07-17T04:05:24.362Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;原型链：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问一个对象的属性时&lt;ul&gt;
+&lt;li&gt;先在&lt;code&gt;自身属性&lt;/code&gt;中查找，找到返回。&lt;/li&gt;
+&lt;li&gt;如果没有，再沿着&lt;code&gt;__proto__&lt;/code&gt;这条链向上查找，找到返回。&lt;/</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    
+    
+    <category term="原型链" scheme="https://libraxxx.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解</title>
     <link href="https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/"/>
     <id>https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/</id>

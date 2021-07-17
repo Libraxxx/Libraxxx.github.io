@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式, Libra">
+    <meta name="keywords" content="执行上下文与执行上下文栈, Libra">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>设计模式 | Libra</title>
+    <title>执行上下文与执行上下文栈 | Libra</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式</h1>
+                    <h1 class="description center-align post-title">执行上下文与执行上下文栈</h1>
                 </div>
             </div>
         </div>
@@ -432,9 +432,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/">
+                                <span class="chip bg-color">执行上下文</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88/">
+                                <span class="chip bg-color">执行上下文栈</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -442,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                设计模式
+                            <a href="/categories/web/" class="post-category">
+                                web
                             </a>
                         
                     </div>
@@ -455,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-04-03
                 </div>
                 
 
@@ -484,51 +492,80 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、MVC设计模式"><a href="#一、MVC设计模式" class="headerlink" title="一、MVC设计模式"></a>一、MVC设计模式</h3><p><code>MVC</code>是<code>Model-View-Controller</code>的缩写。其中每个单词都有其不同的含义：</p>
-<ul>
-<li><code>Model</code>代表数据存储层，是对数据的定义和数据的CRUD（增删改查）。<ul>
-<li>增加(Create)、检索(Retrieve)、更新(Update)和删除(Delete)</li>
-</ul>
+                <h4 id="执行上下文与执行上下文栈"><a href="#执行上下文与执行上下文栈" class="headerlink" title="执行上下文与执行上下文栈"></a>执行上下文与执行上下文栈</h4><h4 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a><strong>变量提升</strong></h4><p>变量声明提升：通过var定义（声明）的变量，在定义语句之前就可以访问到。值为undefined。</p>
+<p>函数声明提升：通过function声明的函数，在之前就可以调用。值为函数定义（对象）。</p>
+<p><strong>注意</strong>：函数提升只能是采用function声明的方式，不能是函数表达式方式。</p>
+<p><strong>变量提升和函数提升是如何产生的？</strong></p>
+<h4 id="全局执行上下文："><a href="#全局执行上下文：" class="headerlink" title="全局执行上下文："></a><strong>全局执行上下文：</strong></h4><ol>
+<li><p>在执行全局代码前将window确定为全局执行上下文。</p>
 </li>
-<li><code>View </code>代表视图层，是系统前端显示的部分，它负责显示什么和如何进行显示。</li>
-<li><code>Controller </code>代表控制层，负责根据从View层输入的指令来检索Model层的数据，并在该层编写代码产生结果并输出。</li>
-</ul>
-<img src="/2021/04/24/she-ji-mo-shi/mvc.png" alt="MVC设计模式示意图" style="zoom:80%;">
+<li><p>对<code>全局数据</code>进行预处理。</p>
+<ol>
+<li><p>var定义的全局变量 ==》undefined，添加为window属性。</p>
+</li>
+<li><p>function声明的全局函数 ==》赋值（fun），添加为window方法。</p>
+</li>
+<li><p>this ==》赋值（window）</p>
+</li>
+</ol>
+</li>
+<li><p>开始执行全局代码。</p>
+</li>
+</ol>
+<p><strong>注：全局执行上下文只能有一个，且一直在栈底。</strong></p>
+<h4 id="函数执行上下文："><a href="#函数执行上下文：" class="headerlink" title="函数执行上下文："></a><strong>函数执行上下文：</strong></h4><ol>
+<li><p>在调用函数，准备执行函数体之前，创建对应的函数执行上下文对象。</p>
+</li>
+<li><p>对<code>局部数据</code>进行预处理。</p>
+<p>​    1)  形参变量 ==》赋值（实参）==》添加为执行上下文的属性。</p>
+<p>​    2) arguments ==》赋值（实参列表），添加为执行上下文的属性。</p>
+<p>​    3) var 定义的局部变量 ==》undefined，添加为执行上下文的属性。</p>
+<p>​    4) function 声明的函数  ==》赋值（fun），添加为执行上下文的方法。</p>
+<p>​    5) this ==》赋值（调用函数的对象）。</p>
+</li>
+<li><p>开始执行函数体代码。</p>
+</li>
+</ol>
+<h4 id="执行上下文栈："><a href="#执行上下文栈：" class="headerlink" title="执行上下文栈："></a><strong>执行上下文栈：</strong></h4><ol>
+<li>在全局代码执行前，JS引擎就会创建一个栈来存储管理所有的执行上下文对象。</li>
+<li>在全局执行上下文（window）确定后，将其添加到栈中（压栈）。</li>
+<li>在全局执行上下文创建后，将其添加到栈中（压栈）。</li>
+<li>在当前代码执行完后，将顶栈的对象移除（出栈）。</li>
+<li>当所有的代码执行完后，栈中只剩下window。</li>
+</ol>
+<p><strong>注：函数执行的时候才将其添加到栈中。</strong></p>
+<p>代码流程分析：</p>
+<img src="/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/执行上下文.png" alt="" style="zoom:80%;">
 
-<p><code>MVC</code>设计模式的请求和响应过程描述如下：</p>
-<ul>
-<li>用户通过浏览器发起<code>request</code>请求，<code>Controller</code>层接受请求后，同时向<code>Model</code>层和<code>View</code>层发送指令；</li>
-<li><code>Model</code>层根据指令与数据库交互并选择相应的业务数据，然后将数据发送给<code>Controller</code>层；</li>
-<li><code>View</code>层接受到<code>Controller</code>层的指令后，加载用户请求的界面，并将页面发送给<code>Controller</code>层；</li>
-<li><code>Controller</code>层接收到<code>Model</code>层和<code>View</code>层的数据后，把它们组织成响应格式发送给浏览器，浏览器通过解析后把页面显示出来。</li>
-</ul>
-<p>​    MVC 的 3 层之间紧密相连，但又相互独立，每一层的修改都不会影响其它层，每一层都提供了各自独立的接口供其它层调用，MVC 的设计模式降低了代码之间的耦合性（即关联性），增加了模块的可重用性，这就是 MVC 的设计模式。</p>
-<h3 id="二、MTV设计模式"><a href="#二、MTV设计模式" class="headerlink" title="二、MTV设计模式"></a>二、MTV设计模式</h3><p>那么 Django（栈go）的 MTV 又是怎么回事呢？下面讲解 <code>Django </code>的设计模式。</p>
-<p>Django 借鉴了经典的 MVC 模式，它也将交互的过程分为了 3 个层次，也就是 MTV 设计模式；</p>
-<ul>
-<li><p><code>Model</code>：数据存储层，处理所有数据相关的业务，和数据库进行交互，并提供数据的增删改查；</p>
-</li>
-<li><p><code>Template</code>：模板层（也叫表现层）具体来处理页面的显示；</p>
-</li>
-<li><p><code>View</code>：业务逻辑层，处理具体的业务逻辑，它的作用是连通Model 层和 Template 。</p>
-</li>
-</ul>
-<img src="/2021/04/24/she-ji-mo-shi/mtv.png" alt="Django MTV设计模式示意图" style="zoom:80%;">
+<p><strong>面试题：</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 测试题1:先执行变量提升，在执行函数提升</span>
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ‘function’</span>
+<span class="token punctuation">}</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<p>我们按照 MVC 的设计模式对 MTV 进行分析，<strong>MTV 设计模式中，用 <code>View </code>层取代了 <code>Controller</code> 层的位置，用 <code>Template</code> 层取代了原来<code>View</code>层的位置。</strong></p>
-<p>初次接触 Django 的设计模式的人，可能会对 Template 层产生疑问，其实 Template 英文的含义就是“模板”的意思，你可以简单理解成，它是一个 HTML 页面 ，HTML 页面的渲染在视图层完成。</p>
-<p>同样我们也对 MTV 设计模式的请求与响应过程进行描述：</p>
-<ul>
-<li><p>用户通过浏览器对服务器发起 <code>request </code>请求，服务器接收请求后，通过 <code>View </code>的业务逻辑层进行分析，同时向 <code>Model </code>层和 <code>Template </code>层发送指令；</p>
-</li>
-<li><p><code>Mole </code>层与数据库进行交互，将数据返回给 <code>View </code>层；</p>
-</li>
-<li><p><code>Template </code>层接收到指令后，调用相应的模板，并返回给 <code>View </code>层；</p>
-</li>
-<li><p><code>View </code>层接收到模板与数据后，首先对模板进行渲染（即将相应的数据赋值给模板），然后组织成响应格式返回给浏览器，浏览器进行解析后并最终呈现给用户。</p>
-</li>
-</ul>
-<p>​     通过以上两种设计模式的比较， 我们可以得出 <strong>MTV 是 MVC 的一种细化</strong>，将原来 MVC 中的 V 层拿出来进行分离，视图的显示与如何显示交给 Template 层，而 View 层更专注于实现业务逻辑。其实在 Django 是有 Controller 层的，只不过它由框架本身来实现，所以我们不用关心它。Django 更关注于M、T 和 V。</p>
+<span class="token comment">// 测试题2</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>b <span class="token keyword">in</span> window<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+
+<span class="token comment">//测试题3</span>
+<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">function</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token parameter">c</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">c</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 保错，c is not a function</span>
+
+<span class="token comment">//测试题3实际上是按照下面的顺序来执行的：</span>
+<span class="token keyword">var</span> c
+<span class="token keyword">function</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token parameter">c</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+c <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token function">c</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// 保错</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -555,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://libraxxx.github.io/2021/04/24/she-ji-mo-shi/">https://libraxxx.github.io/2021/04/24/she-ji-mo-shi/</a>
+                    <a href="https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/">https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,7 +629,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/">
+                                    <span class="chip bg-color">执行上下文</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88/">
+                                    <span class="chip bg-color">执行上下文栈</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1027,13 +1072,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/16/orm-jie-shao/">
+                <a href="/2021/04/03/xian-shi-yuan-xing-yu-yin-shi-yuan-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ORM介绍">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="显示原型与隐式原型">
                         
-                        <span class="card-title">ORM介绍</span>
+                        <span class="card-title">显示原型与隐式原型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1044,14 +1089,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/web/" class="post-category">
+                                    web
                                 </a>
                             
                             
@@ -1061,8 +1106,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ORM/">
-                        <span class="chip bg-color">ORM</span>
+                    <a href="/tags/%E6%98%BE%E7%A4%BA%E5%8E%9F%E5%9E%8B/">
+                        <span class="chip bg-color">显示原型</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B/">
+                        <span class="chip bg-color">隐式原型</span>
                     </a>
                     
                 </div>
@@ -1076,13 +1125,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/03/bi-bao/">
+                <a href="/2021/04/02/yuan-xing-lian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="闭包">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="原型链">
                         
-                        <span class="card-title">闭包</span>
+                        <span class="card-title">原型链</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1093,7 +1142,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
                             </span>
                         <span class="publish-author">
                             
@@ -1110,8 +1159,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%97%AD%E5%8C%85/">
-                        <span class="chip bg-color">闭包</span>
+                    <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                        <span class="chip bg-color">原型链</span>
                     </a>
                     
                 </div>
