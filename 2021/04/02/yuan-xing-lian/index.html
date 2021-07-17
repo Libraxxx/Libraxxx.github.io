@@ -470,11 +470,6 @@
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -488,8 +483,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>原型链：</strong></p>
+                <h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><p><strong>函数的prototype属性</strong>（显示原型属性）</p>
 <ul>
+<li> 每个函数都有一个prototype属性，它默认指向一个Object空对象（即称为：原型对象）。</li>
+<li>原型对象中有一个属性constructor，它指向函数对象。</li>
+</ul>
+<p><strong>给原型对象添加属性（一般都是方法）</strong></p>
+<ul>
+<li>作用：函数的所有实例对象自动拥有原型中的属性（方法）</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 每个函数都有一个prototype属性，它默认指向一个Object空对象（即称为：原型对象）</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Date</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token keyword">typeof</span> <span class="token class-name">Date</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{constructor: ƒ, toString: ƒ, toDateString: ƒ, toTimeString: ƒ, toISOString: ƒ, …} "object"</span>
+
+<span class="token keyword">function</span> <span class="token function">Fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Fun</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//默认指向一个Object空对象(没有我们自己定义的属性)</span>
+
+<span class="token comment">// 原型对象中有一个属性constructor，它指向函数对象</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Date</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Date<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Fun</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Fun<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+
+<span class="token comment">// 给原型对象添加属性（一般都是方法）===&gt;给实例对象使用</span>
+<span class="token class-name">Fun</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">test</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test()'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> fun <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+fun<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//test()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2021/04/02/yuan-xing-lian/yxl.png" alt="" style="zoom:80%;">
+
+<p>如上图所示，假设函数名为<code>Type</code>,它拥有<code>prototype</code>属性,并且<code>prototype</code>指向<code>Type</code>的原型对象，而原型对象里面拥有<code>constructor</code>属性，<code>constructor</code>指向<code>Type</code>。由此说明，<strong>构造函数和它的原型对象相互引用。</strong></p>
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><ul>
 <li>访问一个对象的属性时<ul>
 <li>先在<code>自身属性</code>中查找，找到返回。</li>
 <li>如果没有，再沿着<code>__proto__</code>这条链向上查找，找到返回。</li>

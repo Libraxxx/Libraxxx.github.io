@@ -730,16 +730,12 @@ Model代表数据存储层，是对数据的定义和数据的CRUD（增删改�
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    原型链：
+                                    原型函数的prototype属性（显示原型属性）
 
-访问一个对象的属性时
-先在自身属性中查找，找到返回。
-如果没有，再沿着__proto__这条链向上查找，找到返回。
-如果最终没有找到，返回undefined。
+ 每个函数都有一个prototype属性，它默认指向一个Object空对象（即称为：原型对象）。
+原型对象中有一个属性constructor，它指向函数对象。
 
-
-别名：隐式原型链（沿着隐式原型链查找）
-作用：查找对象的属性（方
+给原型对象添加属性（一般都
                                 
                             </div>
                             <div class="publish-info">
