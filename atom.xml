@@ -122,6 +122,33 @@
   </entry>
   
   <entry>
+    <title>DFS和BFS的使用</title>
+    <link href="https://libraxxx.github.io/2021/05/17/dfs-he-bfs-de-shi-yong/"/>
+    <id>https://libraxxx.github.io/2021/05/17/dfs-he-bfs-de-shi-yong/</id>
+    <published>2021-05-17T00:34:00.000Z</published>
+    <updated>2021-07-19T10:43:03.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;DFS（深度优先搜索）&lt;/strong&gt;和 &lt;strong&gt;BFS（广度优先搜索）&lt;/strong&gt;就像孪生兄弟，提到一个总是想起另一个。然而在实际使用中，我们用 DFS 的时候远远多于 BFS。那么，是不是 BFS</summary>
+        
+      
+    
+    
+    
+    <category term="LeetCode" scheme="https://libraxxx.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="DFS" scheme="https://libraxxx.github.io/tags/DFS/"/>
+    
+    <category term="BFS" scheme="https://libraxxx.github.io/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ORM介绍</title>
     <link href="https://libraxxx.github.io/2021/05/16/orm-jie-shao/"/>
     <id>https://libraxxx.github.io/2021/05/16/orm-jie-shao/</id>
