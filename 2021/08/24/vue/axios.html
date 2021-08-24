@@ -1,0 +1,237 @@
+<hr>
+<p>title: 面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？<br>categories: 面试相关<br>tag: Vue</p>
+<hr>
+<h1 id="面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？"><a href="#面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？" class="headerlink" title="面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？"></a>面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？</h1><p><img src="https://static.vue-js.com/2bf1e460-45a7-11eb-85f6-6fac77c0c9b3.png"></p>
+<h2 id="一、axios是什么"><a href="#一、axios是什么" class="headerlink" title="一、axios是什么"></a>一、axios是什么</h2><p><code>axios</code> 是一个轻量的 <code>HTTP</code>客户端</p>
+<p>基于 <code>XMLHttpRequest</code> 服务来执行 <code>HTTP</code> 请求，支持丰富的配置，支持 <code>Promise</code>，支持浏览器端和 <code>Node.js</code> 端。自<code>Vue</code>2.0起，尤大宣布取消对 <code>vue-resource</code> 的官方推荐，转而推荐 <code>axios</code>。现在 <code>axios</code> 已经成为大部分 <code>Vue</code> 开发者的首选</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>从浏览器中创建 <code>XMLHttpRequests</code></li>
+<li>从 <code>node.js</code> 创建 <code>http</code>请求</li>
+<li>支持 <code>Promise</code> API</li>
+<li>拦截请求和响应</li>
+<li>转换请求数据和响应数据</li>
+<li>取消请求</li>
+<li>自动转换<code> JSON</code> 数据</li>
+<li>客户端支持防御<code>XSRF</code></li>
+</ul>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>安装</p>
+<pre><code class="js">// 项目中安装
+npm install axios --S
+// cdn 引入
+&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>导入</p>
+<pre><code class="js">import axios from &#39;axios&#39;
+</code></pre>
+<p>发送请求</p>
+<pre><code class="js">axios({        
+  url:&#39;xxx&#39;,    // 设置请求的地址
+  method:&quot;GET&quot;, // 设置请求方法
+  params:{      // get请求使用params进行参数凭借,如果是post请求用data
+    type: &#39;&#39;,
+    page: 1
+  }
+}).then(res =&gt; {  
+  // res为后端返回的数据
+  console.log(res);   
+})
+</code></pre>
+<p>并发请求<code>axios.all([])</code></p>
+<pre><code class="js">function getUserAccount() {
+    return axios.get(&#39;/user/12345&#39;);
+}
+
+function getUserPermissions() {
+    return axios.get(&#39;/user/12345/permissions&#39;);
+}
+
+axios.all([getUserAccount(), getUserPermissions()])
+    .then(axios.spread(function (res1, res2) { 
+    // res1第一个请求的返回的内容，res2第二个请求返回的内容
+    // 两个请求都执行完成才会执行
+}));
+</code></pre>
+<h2 id="二、为什么要封装"><a href="#二、为什么要封装" class="headerlink" title="二、为什么要封装"></a>二、为什么要封装</h2><p><code>axios</code> 的 API 很友好，你完全可以很轻松地在项目中直接使用。</p>
+<p>不过随着项目规模增大，如果每发起一次<code>HTTP</code>请求，就要把这些比如设置超时时间、设置请求头、根据项目环境判断使用哪个请求地址、错误处理等等操作，都需要写一遍</p>
+<p>这种重复劳动不仅浪费时间，而且让代码变得冗余不堪，难以维护。为了提高我们的代码质量，我们应该在项目中二次封装一下 <code>axios</code> 再使用</p>
+<p>举个例子：</p>
+<pre><code class="js">axios(&#39;http://localhost:3000/data&#39;, {
+  // 配置代码
+  method: &#39;GET&#39;,
+  timeout: 1000,
+  withCredentials: true,
+  headers: {
+    &#39;Content-Type&#39;: &#39;application/json&#39;,
+    Authorization: &#39;xxx&#39;,
+  },
+  transformRequest: [function (data, headers) {
+    return data;
+  }],
+  // 其他请求配置...
+})
+.then((data) =&gt; {
+  // todo: 真正业务逻辑代码
+  console.log(data);
+}, (err) =&gt; {
+  // 错误处理代码  
+  if (err.response.status === 401) {
+  // handle authorization error
+  }
+  if (err.response.status === 403) {
+  // handle server forbidden error
+  }
+  // 其他错误处理.....
+  console.log(err);
+});
+</code></pre>
+<p>如果每个页面都发送类似的请求，都要写一堆的配置与错误处理，就显得过于繁琐了</p>
+<p>这时候我们就需要对<code>axios</code>进行二次封装，让使用更为便利</p>
+<h2 id="三、如何封装"><a href="#三、如何封装" class="headerlink" title="三、如何封装"></a>三、如何封装</h2><p>封装的同时，你需要和 后端协商好一些约定，请求头，状态码，请求超时时间…….</p>
+<p>设置接口请求前缀：根据开发、测试、生产环境的不同，前缀需要加以区分</p>
+<p>请求头 :  来实现一些具体的业务，必须携带一些参数才可以请求(例如：会员业务)</p>
+<p>状态码:   根据接口返回的不同<code>status</code> ， 来执行不同的业务，这块需要和后端约定好</p>
+<p>请求方法：根据<code>get</code>、<code>post</code>等方法进行一个再次封装，使用起来更为方便</p>
+<p>请求拦截器:  根据请求的请求头设定，来决定哪些请求可以访问</p>
+<p>响应拦截器： 这块就是根据 后端`返回来的状态码判定执行不同业务</p>
+<h3 id="设置接口请求前缀"><a href="#设置接口请求前缀" class="headerlink" title="设置接口请求前缀"></a>设置接口请求前缀</h3><p>利用<code>node</code>环境变量来作判断，用来区分开发、测试、生产环境</p>
+<pre><code class="js">if (process.env.NODE_ENV === &#39;development&#39;) {
+  axios.defaults.baseURL = &#39;http://dev.xxx.com&#39;
+} else if (process.env.NODE_ENV === &#39;production&#39;) {
+  axios.defaults.baseURL = &#39;http://prod.xxx.com&#39;
+}
+</code></pre>
+<p>在本地调试的时候，还需要在<code>vue.config.js</code>文件中配置<code>devServer</code>实现代理转发，从而实现跨域</p>
+<pre><code class="js">devServer: {
+    proxy: {
+      &#39;/proxyApi&#39;: {
+        target: &#39;http://dev.xxx.com&#39;,
+        changeOrigin: true,
+        pathRewrite: {
+          &#39;/proxyApi&#39;: &#39;&#39;
+        }
+      }
+    }
+  }
+</code></pre>
+<h3 id="设置请求头与超时时间"><a href="#设置请求头与超时时间" class="headerlink" title="设置请求头与超时时间"></a>设置请求头与超时时间</h3><p>大部分情况下，请求头都是固定的，只有少部分情况下，会需要一些特殊的请求头，这里将普适性的请求头作为基础配置。当需要特殊请求头时，将特殊请求头作为参数传入，覆盖基础配置</p>
+<pre><code class="js">const service = axios.create({
+    ...
+    timeout: 30000,  // 请求 30s 超时
+      headers: {
+        get: {
+          &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded;charset=utf-8&#39;
+          // 在开发中，一般还需要单点登录或者其他功能的通用请求头，可以一并配置进来
+        },
+        post: {
+          &#39;Content-Type&#39;: &#39;application/json;charset=utf-8&#39;
+          // 在开发中，一般还需要单点登录或者其他功能的通用请求头，可以一并配置进来
+        }
+  },
+})
+</code></pre>
+<h3 id="封装请求方法"><a href="#封装请求方法" class="headerlink" title="封装请求方法"></a>封装请求方法</h3><p>先引入封装好的方法，在要调用的接口重新封装成一个方法暴露出去</p>
+<pre><code class="js">// get 请求
+export function httpGet({
+  url,
+  params = {}
+}) {
+  return new Promise((resolve, reject) =&gt; {
+    axios.get(url, {
+      params
+    }).then((res) =&gt; {
+      resolve(res.data)
+    }).catch(err =&gt; {
+      reject(err)
+    })
+  })
+}
+
+// post
+// post请求
+export function httpPost({
+  url,
+  data = {},
+  params = {}
+}) {
+  return new Promise((resolve, reject) =&gt; {
+    axios({
+      url,
+      method: &#39;post&#39;,
+      transformRequest: [function (data) {
+        let ret = &#39;&#39;
+        for (let it in data) {
+          ret += encodeURIComponent(it) + &#39;=&#39; + encodeURIComponent(data[it]) + &#39;&amp;&#39;
+        }
+        return ret
+      }],
+      // 发送的数据
+      data,
+      // url参数
+      params
+
+    }).then(res =&gt; {
+      resolve(res.data)
+    })
+  })
+}
+</code></pre>
+<p>把封装的方法放在一个<code>api.js</code>文件中</p>
+<pre><code class="js">import { httpGet, httpPost } from &#39;./http&#39;
+export const getorglist = (params = {}) =&gt; httpGet({ url: &#39;apps/api/org/list&#39;, params })
+</code></pre>
+<p>页面中就能直接调用</p>
+<pre><code class="js">// .vue
+import { getorglist } from &#39;@/assets/js/api&#39;
+
+getorglist({ id: 200 }).then(res =&gt; {
+  console.log(res)
+})
+</code></pre>
+<p>这样可以把<code>api</code>统一管理起来，以后维护修改只需要在<code>api.js</code>文件操作即可</p>
+<h3 id="请求拦截器"><a href="#请求拦截器" class="headerlink" title="请求拦截器"></a>请求拦截器</h3><p>请求拦截器可以在每个请求里加上token，做了统一处理后维护起来也方便</p>
+<pre><code class="js">// 请求拦截器
+axios.interceptors.request.use(
+  config =&gt; {
+    // 每次发送请求之前判断是否存在token
+    // 如果存在，则统一在http请求的header都加上token，这样后台根据token判断你的登录情况，此处token一般是用户完成登录后储存到localstorage里的
+    token &amp;&amp; (config.headers.Authorization = token)
+    return config
+  },
+  error =&gt; {
+    return Promise.error(error)
+  })
+</code></pre>
+<h3 id="响应拦截器"><a href="#响应拦截器" class="headerlink" title="响应拦截器"></a>响应拦截器</h3><p>响应拦截器可以在接收到响应后先做一层操作，如根据状态码判断登录状态、授权</p>
+<pre><code class="js">// 响应拦截器
+axios.interceptors.response.use(response =&gt; {
+  // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
+  // 否则的话抛出错误
+  if (response.status === 200) {
+    if (response.data.code === 511) {
+      // 未授权调取授权接口
+    } else if (response.data.code === 510) {
+      // 未登录跳转登录页
+    } else {
+      return Promise.resolve(response)
+    }
+  } else {
+    return Promise.reject(response)
+  }
+}, error =&gt; {
+  // 我们可以在这里对异常状态作统一处理
+  if (error.response.status) {
+    // 处理请求失败的情况
+    // 对不同返回码对相应处理
+    return Promise.reject(error.response)
+  }
+})
+</code></pre>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>封装是编程中很有意义的手段，简单的<code>axios</code>封装，就可以让我们可以领略到它的魅力</li>
+<li>封装 <code>axios</code> 没有一个绝对的标准，只要你的封装可以满足你的项目需求，并且用起来方便，那就是一个好的封装方案</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://www.html.cn/qa/vue-js/20544.html">https://www.html.cn/qa/vue-js/20544.html</a></li>
+<li><a href="https://juejin.cn/post/6844904033782611976">https://juejin.cn/post/6844904033782611976</a></li>
+<li><a href="https://juejin.cn/post/6844903801451708429">https://juejin.cn/post/6844903801451708429</a></li>
+</ul>

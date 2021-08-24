@@ -1,0 +1,298 @@
+<hr>
+<p>title: 面试官：说说你对vue的mixin的理解，有什么应用场景？<br>categories: 面试相关<br>tag: Vue</p>
+<hr>
+<h1 id="面试官：说说你对vue的mixin的理解，有什么应用场景？"><a href="#面试官：说说你对vue的mixin的理解，有什么应用场景？" class="headerlink" title="面试官：说说你对vue的mixin的理解，有什么应用场景？"></a>面试官：说说你对vue的mixin的理解，有什么应用场景？</h1><p><img src="https://static.vue-js.com/8a739c90-3b7f-11eb-85f6-6fac77c0c9b3.png"></p>
+<h2 id="一、mixin是什么"><a href="#一、mixin是什么" class="headerlink" title="一、mixin是什么"></a>一、mixin是什么</h2><p><code>Mixin</code>是面向对象程序设计语言中的类，提供了方法的实现。其他类可以访问<code>mixin</code>类的方法而不必成为其子类</p>
+<p><code>Mixin</code>类通常作为功能模块使用，在需要该功能时“混入”，有利于代码复用又避免了多继承的复杂</p>
+<h3 id="Vue中的mixin"><a href="#Vue中的mixin" class="headerlink" title="Vue中的mixin"></a>Vue中的mixin</h3><p>先来看一下官方定义</p>
+<blockquote>
+<p><code>mixin</code>（混入），提供了一种非常灵活的方式，来分发 <code>Vue</code> 组件中的可复用功能。</p>
+</blockquote>
+<p>本质其实就是一个<code>js</code>对象，它可以包含我们组件中任意功能选项，如<code>data</code>、<code>components</code>、<code>methods </code>、<code>created</code>、<code>computed</code>等等</p>
+<p>我们只要将共用的功能以对象的方式传入 <code>mixins</code>选项中，当组件使用 <code>mixins</code>对象时所有<code>mixins</code>对象的选项都将被混入该组件本身的选项中来</p>
+<p>在<code>Vue</code>中我们可以<strong>局部混入</strong>跟<strong>全局混入</strong></p>
+<h3 id="局部混入"><a href="#局部混入" class="headerlink" title="局部混入"></a>局部混入</h3><p>定义一个<code>mixin</code>对象，有组件<code>options</code>的<code>data</code>、<code>methods</code>属性</p>
+<pre><code class="js">var myMixin = {
+  created: function () {
+    this.hello()
+  },
+  methods: {
+    hello: function () {
+      console.log(&#39;hello from mixin!&#39;)
+    }
+  }
+}
+</code></pre>
+<p>组件通过<code>mixins</code>属性调用<code>mixin</code>对象</p>
+<pre><code class="js">Vue.component(&#39;componentA&#39;,{
+  mixins: [myMixin]
+})
+</code></pre>
+<p>该组件在使用的时候，混合了<code>mixin</code>里面的方法，在自动执行<code>create</code>生命钩子，执行<code>hello</code>方法</p>
+<h3 id="全局混入"><a href="#全局混入" class="headerlink" title="全局混入"></a>全局混入</h3><p>通过<code>Vue.mixin()</code>进行全局的混入</p>
+<pre><code class="js">Vue.mixin({
+  created: function () {
+      console.log(&quot;全局混入&quot;)
+    }
+})
+</code></pre>
+<p>使用全局混入需要特别注意，因为它会影响到每一个组件实例（包括第三方组件）</p>
+<p>PS：全局混入常用于插件的编写</p>
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><p>当组件存在与<code>mixin</code>对象相同的选项的时候，进行递归合并的时候组件的选项会覆盖<code>mixin</code>的选项</p>
+<p>但是如果相同选项为生命周期钩子的时候，会合并成一个数组，先执行<code>mixin</code>的钩子，再执行组件的钩子</p>
+<h2 id="二、使用场景"><a href="#二、使用场景" class="headerlink" title="二、使用场景"></a>二、使用场景</h2><p>在日常的开发中，我们经常会遇到在不同的组件中经常会需要用到一些相同或者相似的代码，这些代码的功能相对独立</p>
+<p>这时，可以通过<code>Vue</code>的<code>mixin</code>功能将相同或者相似的代码提出来</p>
+<p>举个例子</p>
+<p>定义一个<code>modal</code>弹窗组件，内部通过<code>isShowing</code>来控制显示</p>
+<pre><code class="js">const Modal = {
+  template: &#39;#modal&#39;,
+  data() {
+    return {
+      isShowing: false
+    }
+  },
+  methods: {
+    toggleShow() {
+      this.isShowing = !this.isShowing;
+    }
+  }
+}
+</code></pre>
+<p>定义一个<code>tooltip</code>提示框，内部通过<code>isShowing</code>来控制显示</p>
+<pre><code class="js">const Tooltip = {
+  template: &#39;#tooltip&#39;,
+  data() {
+    return {
+      isShowing: false
+    }
+  },
+  methods: {
+    toggleShow() {
+      this.isShowing = !this.isShowing;
+    }
+  }
+}
+</code></pre>
+<p>通过观察上面两个组件，发现两者的逻辑是相同，代码控制显示也是相同的，这时候<code>mixin</code>就派上用场了</p>
+<p>首先抽出共同代码，编写一个<code>mixin</code></p>
+<pre><code class="js">const toggle = {
+  data() {
+    return {
+      isShowing: false
+    }
+  },
+  methods: {
+    toggleShow() {
+      this.isShowing = !this.isShowing;
+    }
+  }
+}
+</code></pre>
+<p>两个组件在使用上，只需要引入<code>mixin</code></p>
+<pre><code class="js">const Modal = {
+  template: &#39;#modal&#39;,
+  mixins: [toggle]
+};
+ 
+const Tooltip = {
+  template: &#39;#tooltip&#39;,
+  mixins: [toggle]
+}
+</code></pre>
+<p>通过上面小小的例子，让我们知道了<code>Mixin</code>对于封装一些可复用的功能如此有趣、方便、实用</p>
+<h2 id="三、源码分析"><a href="#三、源码分析" class="headerlink" title="三、源码分析"></a>三、源码分析</h2><p>首先从<code>Vue.mixin</code>入手</p>
+<p>源码位置：/src/core/global-api/mixin.js</p>
+<pre><code class="js">export function initMixin (Vue: GlobalAPI) {
+  Vue.mixin = function (mixin: Object) {
+    this.options = mergeOptions(this.options, mixin)
+    return this
+  }
+}
+</code></pre>
+<p>主要是调用<code>merOptions</code>方法</p>
+<p>源码位置：/src/core/util/options.js</p>
+<pre><code class="js">export function mergeOptions (
+  parent: Object,
+  child: Object,
+  vm?: Component
+): Object {
+
+if (child.mixins) { // 判断有没有mixin 也就是mixin里面挂mixin的情况 有的话递归进行合并
+    for (let i = 0, l = child.mixins.length; i &lt; l; i++) {
+    parent = mergeOptions(parent, child.mixins[i], vm)
+    }
+}
+
+  const options = {} 
+  let key
+  for (key in parent) {
+    mergeField(key) // 先遍历parent的key 调对应的strats[XXX]方法进行合并
+  }
+  for (key in child) {
+    if (!hasOwn(parent, key)) { // 如果parent已经处理过某个key 就不处理了
+      mergeField(key) // 处理child中的key 也就parent中没有处理过的key
+    }
+  }
+  function mergeField (key) {
+    const strat = strats[key] || defaultStrat
+    options[key] = strat(parent[key], child[key], vm, key) // 根据不同类型的options调用strats中不同的方法进行合并
+  }
+  return options
+}
+</code></pre>
+<p>从上面的源码，我们得到以下几点：</p>
+<ul>
+<li>优先递归处理 <code>mixins</code></li>
+<li>先遍历合并<code>parent</code> 中的<code>key</code>，调用<code>mergeField</code>方法进行合并，然后保存在变量<code>options</code></li>
+<li>再遍历 <code>child</code>，合并补上 <code>parent</code> 中没有的<code>key</code>，调用<code>mergeField</code>方法进行合并，保存在变量<code>options</code></li>
+<li>通过 <code>mergeField</code> 函数进行了合并</li>
+</ul>
+<p>下面是关于<code>Vue</code>的几种类型的合并策略</p>
+<ul>
+<li>替换型</li>
+<li>合并型</li>
+<li>队列型</li>
+<li>叠加型</li>
+</ul>
+<h3 id="替换型"><a href="#替换型" class="headerlink" title="替换型"></a>替换型</h3><p>替换型合并有<code>props</code>、<code>methods</code>、<code>inject</code>、<code>computed</code></p>
+<pre><code class="js">strats.props =
+strats.methods =
+strats.inject =
+strats.computed = function (
+  parentVal: ?Object,
+  childVal: ?Object,
+  vm?: Component,
+  key: string
+): ?Object {
+  if (!parentVal) return childVal // 如果parentVal没有值，直接返回childVal
+  const ret = Object.create(null) // 创建一个第三方对象 ret
+  extend(ret, parentVal) // extend方法实际是把parentVal的属性复制到ret中
+  if (childVal) extend(ret, childVal) // 把childVal的属性复制到ret中
+  return ret
+}
+strats.provide = mergeDataOrFn
+</code></pre>
+<p>同名的<code>props</code>、<code>methods</code>、<code>inject</code>、<code>computed</code>会被后来者代替</p>
+<h3 id="合并型"><a href="#合并型" class="headerlink" title="合并型"></a>合并型</h3><p>和并型合并有：<code>data</code></p>
+<pre><code class="js">strats.data = function(parentVal, childVal, vm) {    
+    return mergeDataOrFn(
+        parentVal, childVal, vm
+    )
+};
+
+function mergeDataOrFn(parentVal, childVal, vm) {    
+    return function mergedInstanceDataFn() {        
+        var childData = childVal.call(vm, vm) // 执行data挂的函数得到对象
+        var parentData = parentVal.call(vm, vm)        
+        if (childData) {            
+            return mergeData(childData, parentData) // 将2个对象进行合并                                 
+        } else {            
+            return parentData // 如果没有childData 直接返回parentData
+        }
+    }
+}
+
+function mergeData(to, from) {    
+    if (!from) return to    
+    var key, toVal, fromVal;    
+    var keys = Object.keys(from);   
+    for (var i = 0; i &lt; keys.length; i++) {
+        key = keys[i];
+        toVal = to[key];
+        fromVal = from[key];    
+        // 如果不存在这个属性，就重新设置
+        if (!to.hasOwnProperty(key)) {
+            set(to, key, fromVal);
+        }      
+        // 存在相同属性，合并对象
+        else if (typeof toVal ==&quot;object&quot; &amp;&amp; typeof fromVal ==&quot;object&quot;) {
+            mergeData(toVal, fromVal);
+        }
+    }    
+    return to
+}
+</code></pre>
+<p><code>mergeData</code>函数遍历了要合并的 data 的所有属性，然后根据不同情况进行合并：</p>
+<ul>
+<li>当目标 data 对象不包含当前属性时，调用 <code>set</code> 方法进行合并（set方法其实就是一些合并重新赋值的方法）</li>
+<li>当目标 data 对象包含当前属性并且当前值为纯对象时，递归合并当前对象值，这样做是为了防止对象存在新增属性</li>
+</ul>
+<h3 id="队列性"><a href="#队列性" class="headerlink" title="队列性"></a>队列性</h3><p>队列性合并有：全部生命周期和<code>watch</code></p>
+<pre><code class="js">function mergeHook (
+  parentVal: ?Array&lt;Function&gt;,
+  childVal: ?Function | ?Array&lt;Function&gt;
+): ?Array&lt;Function&gt; {
+  return childVal
+    ? parentVal
+      ? parentVal.concat(childVal)
+      : Array.isArray(childVal)
+        ? childVal
+        : [childVal]
+    : parentVal
+}
+
+LIFECYCLE_HOOKS.forEach(hook =&gt; {
+  strats[hook] = mergeHook
+})
+
+// watch
+strats.watch = function (
+  parentVal,
+  childVal,
+  vm,
+  key
+) {
+  // work around Firefox&#39;s Object.prototype.watch...
+  if (parentVal === nativeWatch) { parentVal = undefined; }
+  if (childVal === nativeWatch) { childVal = undefined; }
+  /* istanbul ignore if */
+  if (!childVal) { return Object.create(parentVal || null) }
+  {
+    assertObjectType(key, childVal, vm);
+  }
+  if (!parentVal) { return childVal }
+  var ret = {};
+  extend(ret, parentVal);
+  for (var key$1 in childVal) {
+    var parent = ret[key$1];
+    var child = childVal[key$1];
+    if (parent &amp;&amp; !Array.isArray(parent)) {
+      parent = [parent];
+    }
+    ret[key$1] = parent
+      ? parent.concat(child)
+      : Array.isArray(child) ? child : [child];
+  }
+  return ret
+};
+</code></pre>
+<p>生命周期钩子和<code>watch</code>被合并为一个数组，然后正序遍历一次执行</p>
+<h3 id="叠加型"><a href="#叠加型" class="headerlink" title="叠加型"></a>叠加型</h3><p>叠加型合并有：<code>component</code>、<code>directives</code>、<code>filters</code></p>
+<pre><code class="js">strats.components=
+strats.directives=
+
+strats.filters = function mergeAssets(
+    parentVal, childVal, vm, key
+) {    
+    var res = Object.create(parentVal || null);    
+    if (childVal) { 
+        for (var key in childVal) {
+            res[key] = childVal[key];
+        }   
+    } 
+    return res
+}
+</code></pre>
+<p>叠加型主要是通过原型链进行层层的叠加</p>
+<h3 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h3><ul>
+<li>替换型策略有<code>props</code>、<code>methods</code>、<code>inject</code>、<code>computed</code>，就是将新的同名参数替代旧的参数</li>
+<li>合并型策略是<code>data</code>, 通过<code>set</code>方法进行合并和重新赋值</li>
+<li>队列型策略有生命周期函数和<code>watch</code>，原理是将函数存入一个数组，然后正序遍历依次执行</li>
+<li>叠加型有<code>component</code>、<code>directives</code>、<code>filters</code>，通过原型链进行层层的叠加</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31018570">https://zhuanlan.zhihu.com/p/31018570</a></li>
+<li><a href="https://juejin.cn/post/6844904015495446536#heading-1">https://juejin.cn/post/6844904015495446536#heading-1</a></li>
+<li><a href="https://juejin.cn/post/6844903846775357453">https://juejin.cn/post/6844903846775357453</a></li>
+<li><a href="https://vue3js.cn/docs/zh">https://vue3js.cn/docs/zh</a></li>
+</ul>

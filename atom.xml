@@ -6,7 +6,7 @@
   <link href="https://libraxxx.github.io/atom.xml" rel="self"/>
   
   <link href="https://libraxxx.github.io/"/>
-  <updated>2021-08-24T07:49:02.589Z</updated>
+  <updated>2021-08-24T08:10:43.989Z</updated>
   <id>https://libraxxx.github.io/</id>
   
   <author>
@@ -17,43 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>面试官：你了解Vue的diff算法吗？说说看</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/diff/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/diff/</id>
-    <published>2021-08-24T07:48:50.258Z</published>
-    <updated>2021-08-24T07:49:02.589Z</updated>
+    <title>面试官：vue项目本地开发完成后部署到服务器后报404是什么原因呢？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/404/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/404/</id>
+    <published>2021-08-24T08:10:24.992Z</published>
+    <updated>2021-08-24T08:10:43.989Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;面试官：你了解vue的diff算法吗？说说看&quot;&gt;&lt;a href=&quot;#面试官：你了解vue的diff算法吗？说说看&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：有使用过Vue吗?说说对Vue的理解</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/</id>
-    <published>2021-08-24T07:46:14.672Z</published>
-    <updated>2021-08-24T07:46:59.906Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：有使用过vue吗？说说你对vue的理解&quot;&gt;&lt;a href=&quot;#面试官：有使用过vue吗？说说你对vue的理解&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：vue项目本地开发完成后部署到服务器后报404是什么原因呢？&quot;&gt;&lt;a href=&quot;#面试官：vue项目本地开发完成后部署到服务器后报404是什么原因呢？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -67,18 +42,18 @@
   </entry>
   
   <entry>
-    <title>面试官：Vue实例挂载的过程</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/new-vue/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/new-vue/</id>
-    <published>2021-08-24T07:42:03.381Z</published>
-    <updated>2021-08-24T07:43:07.275Z</updated>
+    <title>面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/axios/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/axios/</id>
+    <published>2021-08-24T08:09:43.062Z</published>
+    <updated>2021-08-24T08:10:04.944Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;面试官：Vue实例挂载的过程&quot;&gt;&lt;a href=&quot;#面试官：Vue实例挂载的过程&quot; class=&quot;headerlink&quot; title=&quot;面试官：Vue实例挂载的过程&quot;&gt;&lt;/a&gt;面试官：Vue实例挂载的过程&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？&quot;&gt;&lt;a href=&quot;#面试官：Vue项目中有封装过axios吗？主要是封装哪方面的？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -92,367 +67,452 @@
   </entry>
   
   <entry>
-    <title>从零开始的Linux WiFi CSITool</title>
-    <link href="https://libraxxx.github.io/2021/07/12/cong-ling-kai-shi-de-linux-wifi-csitool/"/>
-    <id>https://libraxxx.github.io/2021/07/12/cong-ling-kai-shi-de-linux-wifi-csitool/</id>
-    <published>2021-07-12T07:14:29.731Z</published>
-    <updated>2021-07-12T07:52:40.473Z</updated>
+    <title>面试官：你了解axios的原理吗？有看过它的源码吗？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/axioscode/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/axioscode/</id>
+    <published>2021-08-24T08:09:15.453Z</published>
+    <updated>2021-08-24T08:09:37.253Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;本文主要参考&quot;&gt;&lt;a href=&quot;#本文主要参考&quot; class=&quot;headerlink&quot; title=&quot;本文主要参考&quot;&gt;&lt;/a&gt;本文主要参考&lt;/h1&gt;&lt;h3 id=&quot;1-官方资料&quot;&gt;&lt;a href=&quot;#1-官方资料&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：你了解axios的原理吗？有看过它的源码吗？&quot;&gt;&lt;a href=&quot;#面试官：你了解axios的原理吗？有看过它的源码吗？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="WiFi" scheme="https://libraxxx.github.io/categories/WiFi/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSI" scheme="https://libraxxx.github.io/tags/CSI/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>CSI数据格式</title>
-    <link href="https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/"/>
-    <id>https://libraxxx.github.io/2021/07/08/csi-shu-ju-ge-shi/</id>
-    <published>2021-07-08T12:50:49.845Z</published>
-    <updated>2021-07-09T11:19:37.593Z</updated>
+    <title>面试官：双向数据绑定是什么？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/bind/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/bind/</id>
+    <published>2021-08-24T08:08:46.315Z</published>
+    <updated>2021-08-24T08:09:09.255Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;数据采集工具csi_tool采集数据并保存为后缀.dat的数据文件，在csi_tool中提供一个c语言函数解析此文件。阅读了c语言的解析代码后发现，数据文件的组织方法与计网中数据十分相似，但略有不同。&lt;/p&gt;
-&lt;h1 id=&quot;数据格式&quot;&gt;&lt;a href=&quot;#数据格式&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：双向数据绑定是什么&quot;&gt;&lt;a href=&quot;#面试官：双向数据绑定是什么&quot; class=&quot;headerlink&quot; title=&quot;面试官：双向数据绑定是什么&quot;&gt;&lt;/a&gt;面试官：双向数据绑定是什么&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
         
       
     
     
     
-    <category term="WiFi" scheme="https://libraxxx.github.io/categories/WiFi/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSI数据格式" scheme="https://libraxxx.github.io/tags/CSI%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>CSI安装方法</title>
-    <link href="https://libraxxx.github.io/2021/06/17/csi-an-zhuang/"/>
-    <id>https://libraxxx.github.io/2021/06/17/csi-an-zhuang/</id>
-    <published>2021-06-17T13:01:24.000Z</published>
-    <updated>2021-07-09T11:19:42.233Z</updated>
+    <title>面试官：Vue组件之间的通信方式都有哪些？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/communication/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/communication/</id>
+    <published>2021-08-24T08:08:16.674Z</published>
+    <updated>2021-08-24T08:08:42.280Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;一、第一种安装方法&quot;&gt;&lt;a href=&quot;#一、第一种安装方法&quot; class=&quot;headerlink&quot; title=&quot;一、第一种安装方法&quot;&gt;&lt;/a&gt;一、第一种安装方法&lt;/h1&gt;&lt;h2 id=&quot;1-操作系统和硬件配置&quot;&gt;&lt;a href=&quot;#1-操作系统和硬件配置&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue组件之间的通信方式都有哪些？&quot;&gt;&lt;a href=&quot;#面试官：Vue组件之间的通信方式都有哪些？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="WiFi" scheme="https://libraxxx.github.io/categories/WiFi/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSI_Tools安装" scheme="https://libraxxx.github.io/tags/CSI-Tools%E5%AE%89%E8%A3%85/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>session，sessionStorage，localStorage的解释以及区别</title>
-    <link href="https://libraxxx.github.io/2021/05/20/session-localstorage-sessionstorage-de-qu-bie/"/>
-    <id>https://libraxxx.github.io/2021/05/20/session-localstorage-sessionstorage-de-qu-bie/</id>
-    <published>2021-05-20T08:20:36.000Z</published>
-    <updated>2021-07-09T06:27:21.480Z</updated>
+    <title>面试官：Vue中组件和插件有什么区别？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/components-plugin/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/components-plugin/</id>
+    <published>2021-08-24T08:07:44.516Z</published>
+    <updated>2021-08-24T08:08:08.909Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;一、Web-Storage介绍&quot;&gt;&lt;a href=&quot;#一、Web-Storage介绍&quot; class=&quot;headerlink&quot; title=&quot;一、Web Storage介绍&quot;&gt;&lt;/a&gt;一、Web</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue中组件和插件有什么区别？&quot;&gt;&lt;a href=&quot;#面试官：Vue中组件和插件有什么区别？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="session" scheme="https://libraxxx.github.io/tags/session/"/>
-    
-    <category term="localStorage" scheme="https://libraxxx.github.io/tags/localStorage/"/>
-    
-    <category term="sessionStorage" scheme="https://libraxxx.github.io/tags/sessionStorage/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>DFS和BFS的使用</title>
-    <link href="https://libraxxx.github.io/2021/05/17/dfs-he-bfs-de-shi-yong/"/>
-    <id>https://libraxxx.github.io/2021/05/17/dfs-he-bfs-de-shi-yong/</id>
-    <published>2021-05-17T00:34:00.000Z</published>
-    <updated>2021-07-19T10:43:03.845Z</updated>
+    <title>面试官：Vue项目中你是如何解决跨域的呢？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/cors/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/cors/</id>
+    <published>2021-08-24T08:06:35.194Z</published>
+    <updated>2021-08-24T08:07:00.987Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;strong&gt;DFS（深度优先搜索）&lt;/strong&gt;和 &lt;strong&gt;BFS（广度优先搜索）&lt;/strong&gt;就像孪生兄弟，提到一个总是想起另一个。然而在实际使用中，我们用 DFS 的时候远远多于 BFS。那么，是不是 BFS</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue项目中你是如何解决跨域的呢？&quot;&gt;&lt;a href=&quot;#面试官：Vue项目中你是如何解决跨域的呢？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="LeetCode" scheme="https://libraxxx.github.io/categories/LeetCode/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="DFS" scheme="https://libraxxx.github.io/tags/DFS/"/>
-    
-    <category term="BFS" scheme="https://libraxxx.github.io/tags/BFS/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>ORM介绍</title>
-    <link href="https://libraxxx.github.io/2021/05/16/orm-jie-shao/"/>
-    <id>https://libraxxx.github.io/2021/05/16/orm-jie-shao/</id>
-    <published>2021-05-16T07:35:20.000Z</published>
-    <updated>2021-07-15T09:20:24.518Z</updated>
+    <title>面试官：为什么data属性是一个函数而不是一个对象？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/data/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/data/</id>
+    <published>2021-08-24T08:06:06.302Z</published>
+    <updated>2021-08-24T08:06:29.476Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;一、ORM介绍&quot;&gt;&lt;a href=&quot;#一、ORM介绍&quot; class=&quot;headerlink&quot; title=&quot;一、ORM介绍&quot;&gt;&lt;/a&gt;一、ORM介绍&lt;/h2&gt;&lt;h3 id=&quot;1-什么是ORM&quot;&gt;&lt;a href=&quot;#1-什么是ORM&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：为什么data属性是一个函数而不是一个对象？&quot;&gt;&lt;a href=&quot;#面试官：为什么data属性是一个函数而不是一个对象？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="数据库" scheme="https://libraxxx.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="ORM" scheme="https://libraxxx.github.io/tags/ORM/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>设计模式</title>
-    <link href="https://libraxxx.github.io/2021/04/24/she-ji-mo-shi/"/>
-    <id>https://libraxxx.github.io/2021/04/24/she-ji-mo-shi/</id>
-    <published>2021-04-24T07:35:24.000Z</published>
-    <updated>2021-07-17T10:21:33.884Z</updated>
+    <title>面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/data-object-add-attrs/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/data-object-add-attrs/</id>
+    <published>2021-08-24T08:05:25.627Z</published>
+    <updated>2021-08-24T08:05:57.286Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;一、MVC设计模式&quot;&gt;&lt;a href=&quot;#一、MVC设计模式&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？&quot;&gt;&lt;a href=&quot;#面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="设计模式" scheme="https://libraxxx.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="MVC" scheme="https://libraxxx.github.io/tags/MVC/"/>
-    
-    <category term="MTV" scheme="https://libraxxx.github.io/tags/MTV/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>闭包</title>
-    <link href="https://libraxxx.github.io/2021/04/03/bi-bao/"/>
-    <id>https://libraxxx.github.io/2021/04/03/bi-bao/</id>
-    <published>2021-04-03T06:49:30.000Z</published>
-    <updated>2021-07-17T03:55:14.249Z</updated>
+    <title>面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/directive/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/directive/</id>
+    <published>2021-08-24T08:04:52.196Z</published>
+    <updated>2021-08-24T08:05:14.992Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;如何产生闭包？&quot;&gt;&lt;a href=&quot;#如何产生闭包？&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？&quot;&gt;&lt;a href=&quot;#面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="闭包" scheme="https://libraxxx.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>显示原型与隐式原型</title>
-    <link href="https://libraxxx.github.io/2021/04/03/xian-shi-yuan-xing-yu-yin-shi-yuan-xing/"/>
-    <id>https://libraxxx.github.io/2021/04/03/xian-shi-yuan-xing-yu-yin-shi-yuan-xing/</id>
-    <published>2021-04-03T02:47:00.000Z</published>
-    <updated>2021-07-17T04:09:44.455Z</updated>
+    <title>面试官：你是怎么处理vue项目中的错误的？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/error/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/error/</id>
+    <published>2021-08-24T08:04:29.902Z</published>
+    <updated>2021-08-24T08:04:45.994Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;显式原型与隐式原型&quot;&gt;&lt;a href=&quot;#显式原型与隐式原型&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：你是怎么处理vue项目中的错误的？&quot;&gt;&lt;a href=&quot;#面试官：你是怎么处理vue项目中的错误的？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="显示原型" scheme="https://libraxxx.github.io/tags/%E6%98%BE%E7%A4%BA%E5%8E%9F%E5%9E%8B/"/>
-    
-    <category term="隐式原型" scheme="https://libraxxx.github.io/tags/%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>执行上下文与执行上下文栈</title>
-    <link href="https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/"/>
-    <id>https://libraxxx.github.io/2021/04/03/zhi-xing-shang-xia-wen-yu-zhi-xing-shang-xia-wen-zhan/</id>
-    <published>2021-04-03T02:33:20.000Z</published>
-    <updated>2021-07-17T03:46:48.773Z</updated>
+    <title>面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/filter/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/filter/</id>
+    <published>2021-08-24T08:03:52.496Z</published>
+    <updated>2021-08-24T08:04:18.050Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;执行上下文与执行上下文栈&quot;&gt;&lt;a href=&quot;#执行上下文与执行上下文栈&quot; class=&quot;headerlink&quot; title=&quot;执行上下文与执行上下文栈&quot;&gt;&lt;/a&gt;执行上下文与执行上下文栈&lt;/h4&gt;&lt;h4 id=&quot;变量提升&quot;&gt;&lt;a href=&quot;#变量提升&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？&quot;&gt;&lt;a href=&quot;#面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="执行上下文" scheme="https://libraxxx.github.io/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
-    
-    <category term="执行上下文栈" scheme="https://libraxxx.github.io/tags/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>原型链</title>
-    <link href="https://libraxxx.github.io/2021/04/02/yuan-xing-lian/"/>
-    <id>https://libraxxx.github.io/2021/04/02/yuan-xing-lian/</id>
-    <published>2021-04-02T13:39:12.000Z</published>
-    <updated>2021-07-17T04:17:58.249Z</updated>
+    <title>面试官：SPA首屏加载速度慢的怎么解决？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/first-page-time/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/first-page-time/</id>
+    <published>2021-08-24T08:03:16.898Z</published>
+    <updated>2021-08-24T08:03:42.661Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;原型&quot;&gt;&lt;a href=&quot;#原型&quot; class=&quot;headerlink&quot; title=&quot;原型&quot;&gt;&lt;/a&gt;原型&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;函数的prototype属性&lt;/strong&gt;（显示原型属性）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：SPA首屏加载速度慢的怎么解决？&quot;&gt;&lt;a href=&quot;#面试官：SPA首屏加载速度慢的怎么解决？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="原型链" scheme="https://libraxxx.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>JavaScript执行机制</title>
-    <link href="https://libraxxx.github.io/2021/03/21/javascript-zhi-xing-ji-zhi/"/>
-    <id>https://libraxxx.github.io/2021/03/21/javascript-zhi-xing-ji-zhi/</id>
-    <published>2021-03-21T12:18:00.000Z</published>
-    <updated>2021-07-17T10:02:14.380Z</updated>
+    <title>面试官：v-if和v-for的优先级是什么？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/if-for/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/if-for/</id>
+    <published>2021-08-24T08:02:37.641Z</published>
+    <updated>2021-08-24T08:03:01.859Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;一、关于JavaScript&quot;&gt;&lt;a href=&quot;#一、关于JavaScript&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：v-if和v-for的优先级是什么？&quot;&gt;&lt;a href=&quot;#面试官：v-if和v-for的优先级是什么？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="web" scheme="https://libraxxx.github.io/categories/web/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="JavaScript" scheme="https://libraxxx.github.io/tags/JavaScript/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>DJANGO块标签{ %BLOCK NAME% }{ %ENDBLOCK% }的理解</title>
-    <link href="https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/"/>
-    <id>https://libraxxx.github.io/2021/03/15/django-kuai-biao-qian-block-name-endblock-de-li-jie/</id>
-    <published>2021-03-15T12:18:35.000Z</published>
-    <updated>2021-07-15T07:08:41.996Z</updated>
+    <title>面试官：说说你对keep-alive的理解是什么？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/keepalive/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/keepalive/</id>
+    <published>2021-08-24T08:02:07.368Z</published>
+    <updated>2021-08-24T08:02:27.311Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;举个例子来理解吧。&lt;/p&gt;
-&lt;p&gt;（1）首先，先建立一个&lt;code&gt;apple.html&lt;/code&gt;文件，内容如下:&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-html&quot; data-language=&quot;html&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：说说你对keep-alive的理解是什么？&quot;&gt;&lt;a href=&quot;#面试官：说说你对keep-alive的理解是什么？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="Django" scheme="https://libraxxx.github.io/categories/Django/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="Django  块标签  {% block name%}{endblock}" scheme="https://libraxxx.github.io/tags/Django-%E5%9D%97%E6%A0%87%E7%AD%BE-block-name-endblock/"/>
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>AIoT时代的智能无线感知：特征、算法、数据集</title>
-    <link href="https://libraxxx.github.io/2020/03/21/aiot-shi-dai-de-zhi-neng-wu-xian-gan-zhi/"/>
-    <id>https://libraxxx.github.io/2020/03/21/aiot-shi-dai-de-zhi-neng-wu-xian-gan-zhi/</id>
-    <published>2020-03-21T09:22:24.000Z</published>
-    <updated>2021-07-27T03:23:32.967Z</updated>
+    <title>面试官：你知道vue中key的原理吗？说说你对它的理解</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/key/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/key/</id>
+    <published>2021-08-24T08:01:23.565Z</published>
+    <updated>2021-08-24T08:01:51.523Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;​       </summary>
+    <summary type="html">&lt;h1 id=&quot;面试官：你知道vue中key的原理吗？说说你对它的理解&quot;&gt;&lt;a href=&quot;#面试官：你知道vue中key的原理吗？说说你对它的理解&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="机器学习" scheme="https://libraxxx.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
     
+    
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/lifecycle/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/lifecycle/</id>
+    <published>2021-08-24T08:00:27.134Z</published>
+    <updated>2021-08-24T08:00:50.540Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？&quot;&gt;&lt;a href=&quot;#面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说你对vue的mixin的理解，有什么应用场景？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/mixin/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/mixin/</id>
+    <published>2021-08-24T07:59:23.545Z</published>
+    <updated>2021-08-24T08:00:09.295Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说你对vue的mixin的理解，有什么应用场景？&quot;&gt;&lt;a href=&quot;#面试官：说说你对vue的mixin的理解，有什么应用场景？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：Vue常用的修饰符有哪些？有什么应用场景？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/modifier/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/modifier/</id>
+    <published>2021-08-24T07:58:19.598Z</published>
+    <updated>2021-08-24T07:58:54.503Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue常用的修饰符有哪些有什么应用场景&quot;&gt;&lt;a href=&quot;#面试官：Vue常用的修饰符有哪些有什么应用场景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：Vue中的$nextTick有什么作用？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/vue/nexttick/"/>
+    <id>https://libraxxx.github.io/2021/08/24/vue/nexttick/</id>
+    <published>2021-08-24T07:57:40.291Z</published>
+    <updated>2021-08-24T07:58:10.728Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：Vue中的-nextTick有什么作用？&quot;&gt;&lt;a href=&quot;#面试官：Vue中的-nextTick有什么作用？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
     
   </entry>
   

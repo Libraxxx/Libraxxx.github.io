@@ -1,0 +1,110 @@
+<hr>
+<p>title: 面试官：v-if和v-for的优先级是什么？<br>categories: 面试相关<br>tag: Vue</p>
+<hr>
+<h1 id="面试官：v-if和v-for的优先级是什么？"><a href="#面试官：v-if和v-for的优先级是什么？" class="headerlink" title="面试官：v-if和v-for的优先级是什么？"></a>面试官：v-if和v-for的优先级是什么？</h1><p><img src="https://static.vue-js.com/e8764810-3acb-11eb-85f6-6fac77c0c9b3.png"></p>
+<h2 id="一、作用"><a href="#一、作用" class="headerlink" title="一、作用"></a>一、作用</h2><p><code>v-if</code> 指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 <code>true</code>值的时候被渲染</p>
+<p><code>v-for</code> 指令基于一个数组来渲染一个列表。<code>v-for</code> 指令需要使用 <code>item in items</code> 形式的特殊语法，其中 <code>items</code> 是源数据数组或者对象，而 <code>item</code> 则是被迭代的数组元素的别名</p>
+<p>在 <code>v-for</code> 的时候，建议设置<code>key</code>值，并且保证每个<code>key</code>值是独一无二的，这便于<code>diff</code>算法进行优化</p>
+<p>两者在用法上</p>
+<pre><code class="js">&lt;Modal v-if=&quot;isShow&quot; /&gt;
+
+&lt;li v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+    {{ item.label }}
+&lt;/li&gt;
+</code></pre>
+<h2 id="二、优先级"><a href="#二、优先级" class="headerlink" title="二、优先级"></a>二、优先级</h2><p><code>v-if</code>与<code>v-for</code>都是<code>vue</code>模板系统中的指令</p>
+<p>在<code>vue</code>模板编译的时候，会将指令系统转化成可执行的<code>render</code>函数</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>编写一个<code>p</code>标签，同时使用<code>v-if</code>与 <code>v-for</code></p>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;p v-if=&quot;isShow&quot; v-for=&quot;item in items&quot;&gt;
+        {{ item.title }}
+    &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>创建<code>vue</code>实例，存放<code>isShow</code>与<code>items</code>数据</p>
+<pre><code class="js">const app = new Vue({
+  el: &quot;#app&quot;,
+  data() {
+    return {
+      items: [
+        { title: &quot;foo&quot; },
+        { title: &quot;baz&quot; }]
+    }
+  },
+  computed: {
+    isShow() {
+      return this.items &amp;&amp; this.items.length &gt; 0
+    }
+  }
+})
+</code></pre>
+<p>模板指令的代码都会生成在<code>render</code>函数中，通过<code>app.$options.render</code>就能得到渲染函数</p>
+<pre><code class="js">ƒ anonymous() {
+  with (this) { return 
+    _c(&#39;div&#39;, { attrs: { &quot;id&quot;: &quot;app&quot; } }, 
+    _l((items), function (item) 
+    { return (isShow) ? _c(&#39;p&#39;, [_v(&quot;\n&quot; + _s(item.title) + &quot;\n&quot;)]) : _e() }), 0) }
+}
+</code></pre>
+<p><code>_l</code>是<code>vue</code>的列表渲染函数，函数内部都会进行一次<code>if</code>判断</p>
+<p>初步得到结论：<code>v-for</code>优先级是比<code>v-if</code>高</p>
+<p>再将<code>v-for</code>与<code>v-if</code>置于不同标签</p>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;template v-if=&quot;isShow&quot;&gt;
+        &lt;p v-for=&quot;item in items&quot;&gt;{{item.title}}&lt;/p&gt;
+    &lt;/template&gt;
+&lt;/div&gt;
+</code></pre>
+<p>再输出下<code>render</code>函数</p>
+<pre><code class="js">ƒ anonymous() {
+  with(this){return 
+    _c(&#39;div&#39;,{attrs:{&quot;id&quot;:&quot;app&quot;}},
+    [(isShow)?[_v(&quot;\n&quot;),
+    _l((items),function(item){return _c(&#39;p&#39;,[_v(_s(item.title))])})]:_e()],2)}
+}
+</code></pre>
+<p>这时候我们可以看到，<code>v-for</code>与<code>v-if</code>作用在不同标签时候，是先进行判断，再进行列表的渲染</p>
+<p>我们再在查看下<code>vue</code>源码</p>
+<p>源码位置：<code> \vue-dev\src\compiler\codegen\index.js</code></p>
+<pre><code class="js">export function genElement (el: ASTElement, state: CodegenState): string {
+  if (el.parent) {
+    el.pre = el.pre || el.parent.pre
+  }
+  if (el.staticRoot &amp;&amp; !el.staticProcessed) {
+    return genStatic(el, state)
+  } else if (el.once &amp;&amp; !el.onceProcessed) {
+    return genOnce(el, state)
+  } else if (el.for &amp;&amp; !el.forProcessed) {
+    return genFor(el, state)
+  } else if (el.if &amp;&amp; !el.ifProcessed) {
+    return genIf(el, state)
+  } else if (el.tag === &#39;template&#39; &amp;&amp; !el.slotTarget &amp;&amp; !state.pre) {
+    return genChildren(el, state) || &#39;void 0&#39;
+  } else if (el.tag === &#39;slot&#39;) {
+    return genSlot(el, state)
+  } else {
+    // component or element
+    ...
+}
+</code></pre>
+<p>在进行<code>if</code>判断的时候，<code>v-for</code>是比<code>v-if</code>先进行判断</p>
+<p>最终结论：<code>v-for</code>优先级比<code>v-if</code>高</p>
+<h2 id="三、注意事项"><a href="#三、注意事项" class="headerlink" title="三、注意事项"></a>三、注意事项</h2><ol>
+<li>永远不要把 <code>v-if</code> 和 <code>v-for</code> 同时用在同一个元素上，带来性能方面的浪费（每次渲染都会先循环再进行条件判断）</li>
+<li>如果避免出现这种情况，则在外层嵌套<code>template</code>（页面渲染不生成<code>dom</code>节点），在这一层进行v-if判断，然后在内部进行v-for循环</li>
+</ol>
+<pre><code class="js">&lt;template v-if=&quot;isShow&quot;&gt;
+    &lt;p v-for=&quot;item in items&quot;&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="3">
+<li>如果条件出现在循环内部，可通过计算属性<code>computed</code>提前过滤掉那些不需要显示的项</li>
+</ol>
+<pre><code class="js">computed: {
+    items: function() {
+      return this.list.filter(function (item) {
+        return item.isShow
+      })
+    }
+}
+</code></pre>
