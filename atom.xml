@@ -6,7 +6,7 @@
   <link href="https://libraxxx.github.io/atom.xml" rel="self"/>
   
   <link href="https://libraxxx.github.io/"/>
-  <updated>2021-08-24T08:10:43.989Z</updated>
+  <updated>2021-08-24T09:02:18.399Z</updated>
   <id>https://libraxxx.github.io/</id>
   
   <author>
@@ -15,6 +15,356 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试官：说说对WebSocket的理解？应用场景？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/websocket/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/websocket/</id>
+    <published>2021-08-24T09:00:27.324Z</published>
+    <updated>2021-08-24T09:02:18.399Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说对WebSocket的理解？应用场景？&quot;&gt;&lt;a href=&quot;#面试官：说说对WebSocket的理解？应用场景？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：如何理解UDP 和 TCP? 区别? 应用场景?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/udp-tcp/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/udp-tcp/</id>
+    <published>2021-08-24T09:00:27.318Z</published>
+    <updated>2021-08-24T09:02:34.386Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：如何理解UDP-和-TCP-区别-应用场景&quot;&gt;&lt;a href=&quot;#面试官：如何理解UDP-和-TCP-区别-应用场景&quot; class=&quot;headerlink&quot; title=&quot;面试官：如何理解UDP 和 TCP? 区别?</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：如何理解TCP/IP协议?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/tcp-ip/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/tcp-ip/</id>
+    <published>2021-08-24T09:00:27.312Z</published>
+    <updated>2021-08-24T09:02:46.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：如何理解TCP-IP协议&quot;&gt;&lt;a href=&quot;#面试官：如何理解TCP-IP协议&quot; class=&quot;headerlink&quot; title=&quot;面试官：如何理解TCP/IP协议?&quot;&gt;&lt;/a&gt;面试官：如何理解TCP/IP协议?&lt;/h1&gt;&lt;p&gt; &lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说HTTP 常见的状态码有哪些，适用场景？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/status/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/status/</id>
+    <published>2021-08-24T09:00:27.306Z</published>
+    <updated>2021-08-24T09:02:58.743Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说HTTP-常见的状态码有哪些，适用场景？&quot;&gt;&lt;a href=&quot;#面试官：说说HTTP-常见的状态码有哪些，适用场景？&quot; class=&quot;headerlink&quot; title=&quot;面试官：说说HTTP</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：如何理解OSI七层模型?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/osi/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/osi/</id>
+    <published>2021-08-24T09:00:27.300Z</published>
+    <updated>2021-08-24T09:03:14.915Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：如何理解OSI七层模型&quot;&gt;&lt;a href=&quot;#面试官：如何理解OSI七层模型&quot; class=&quot;headerlink&quot; title=&quot;面试官：如何理解OSI七层模型?&quot;&gt;&lt;/a&gt;面试官：如何理解OSI七层模型?&lt;/h1&gt;&lt;p&gt; &lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：什么是HTTP? HTTP 和 HTTPS 的区别?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/http-https/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/http-https/</id>
+    <published>2021-08-24T09:00:27.295Z</published>
+    <updated>2021-08-24T09:03:45.652Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：什么是HTTP-HTTP-和-HTTPS-的区别&quot;&gt;&lt;a href=&quot;#面试官：什么是HTTP-HTTP-和-HTTPS-的区别&quot; class=&quot;headerlink&quot; title=&quot;面试官：什么是HTTP? HTTP 和 HTTPS</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：为什么说HTTPS比HTTP安全? HTTPS是如何保证安全的？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/https/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/https/</id>
+    <published>2021-08-24T09:00:27.289Z</published>
+    <updated>2021-08-24T09:03:29.589Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：为什么说HTTPS比HTTP安全-HTTPS是如何保证安全的？&quot;&gt;&lt;a href=&quot;#面试官：为什么说HTTPS比HTTP安全-HTTPS是如何保证安全的？&quot; class=&quot;headerlink&quot; title=&quot;面试官：为什么说HTTPS比HTTP安全?</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说 HTTP 常见的请求头有哪些? 作用？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/headers/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/headers/</id>
+    <published>2021-08-24T09:00:27.284Z</published>
+    <updated>2021-08-24T09:04:03.740Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说-HTTP-常见的请求头有哪些-作用？&quot;&gt;&lt;a href=&quot;#面试官：说说-HTTP-常见的请求头有哪些-作用？&quot; class=&quot;headerlink&quot; title=&quot;面试官：说说 HTTP 常见的请求头有哪些? 作用？&quot;&gt;&lt;/a&gt;面试官：说说</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说TCP为什么需要三次握手和四次挥手？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/handshakes-waves/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/handshakes-waves/</id>
+    <published>2021-08-24T09:00:27.277Z</published>
+    <updated>2021-08-24T09:04:17.364Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说TCP为什么需要三次握手和四次挥手？&quot;&gt;&lt;a href=&quot;#面试官：说说TCP为什么需要三次握手和四次挥手？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说一下 GET 和 POST 的区别？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/get-post/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/get-post/</id>
+    <published>2021-08-24T09:00:27.272Z</published>
+    <updated>2021-08-24T09:04:33.468Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说一下-GET-和-POST-的区别？&quot;&gt;&lt;a href=&quot;#面试官：说一下-GET-和-POST-的区别？&quot; class=&quot;headerlink&quot; title=&quot;面试官：说一下 GET 和 POST 的区别？&quot;&gt;&lt;/a&gt;面试官：说一下 GET 和</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：DNS协议 是什么？说说DNS 完整的查询过程?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/dns/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/dns/</id>
+    <published>2021-08-24T09:00:27.267Z</published>
+    <updated>2021-08-24T09:04:49.471Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：DNS协议-是什么？说说DNS-完整的查询过程&quot;&gt;&lt;a href=&quot;#面试官：DNS协议-是什么？说说DNS-完整的查询过程&quot; class=&quot;headerlink&quot; title=&quot;面试官：DNS协议 是什么？说说DNS</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：如何理解CDN？说说实现原理？</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/cdn/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/cdn/</id>
+    <published>2021-08-24T09:00:27.261Z</published>
+    <updated>2021-08-24T09:05:09.478Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：如何理解CDN？说说实现原理？&quot;&gt;&lt;a href=&quot;#面试官：如何理解CDN？说说实现原理？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说地址栏输入 URL 敲下回车后发生了什么?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/after-url/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/after-url/</id>
+    <published>2021-08-24T09:00:27.255Z</published>
+    <updated>2021-08-24T09:05:31.420Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说地址栏输入-URL-敲下回车后发生了什么&quot;&gt;&lt;a href=&quot;#面试官：说说地址栏输入-URL-敲下回车后发生了什么&quot; class=&quot;headerlink&quot; title=&quot;面试官：说说地址栏输入 URL</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试官：说说 HTTP1.0/1.1/2.0 的区别?</title>
+    <link href="https://libraxxx.github.io/2021/08/24/http/1.0-1.1-2.0/"/>
+    <id>https://libraxxx.github.io/2021/08/24/http/1.0-1.1-2.0/</id>
+    <published>2021-08-24T09:00:27.250Z</published>
+    <updated>2021-08-24T09:01:46.450Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;面试官：说说-HTTP1-0-1-1-2-0-的区别&quot;&gt;&lt;a href=&quot;#面试官：说说-HTTP1-0-1-1-2-0-的区别&quot; class=&quot;headerlink&quot; title=&quot;面试官：说说 HTTP1.0/1.1/2.0 的区别?&quot;&gt;&lt;/a&gt;面试官：说说</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP面试相关" scheme="https://libraxxx.github.io/categories/HTTP%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="HTTP" scheme="https://libraxxx.github.io/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>面试官：vue项目本地开发完成后部署到服务器后报404是什么原因呢？</title>
@@ -154,356 +504,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;面试官：Vue中组件和插件有什么区别？&quot;&gt;&lt;a href=&quot;#面试官：Vue中组件和插件有什么区别？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：Vue项目中你是如何解决跨域的呢？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/cors/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/cors/</id>
-    <published>2021-08-24T08:06:35.194Z</published>
-    <updated>2021-08-24T08:07:00.987Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：Vue项目中你是如何解决跨域的呢？&quot;&gt;&lt;a href=&quot;#面试官：Vue项目中你是如何解决跨域的呢？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：为什么data属性是一个函数而不是一个对象？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/data/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/data/</id>
-    <published>2021-08-24T08:06:06.302Z</published>
-    <updated>2021-08-24T08:06:29.476Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：为什么data属性是一个函数而不是一个对象？&quot;&gt;&lt;a href=&quot;#面试官：为什么data属性是一个函数而不是一个对象？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/data-object-add-attrs/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/data-object-add-attrs/</id>
-    <published>2021-08-24T08:05:25.627Z</published>
-    <updated>2021-08-24T08:05:57.286Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？&quot;&gt;&lt;a href=&quot;#面试官：动态给vue的data添加一个新的属性时会发生什么？怎样解决？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/directive/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/directive/</id>
-    <published>2021-08-24T08:04:52.196Z</published>
-    <updated>2021-08-24T08:05:14.992Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？&quot;&gt;&lt;a href=&quot;#面试官：你有写过自定义指令吗？自定义指令的应用场景有哪些？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：你是怎么处理vue项目中的错误的？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/error/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/error/</id>
-    <published>2021-08-24T08:04:29.902Z</published>
-    <updated>2021-08-24T08:04:45.994Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：你是怎么处理vue项目中的错误的？&quot;&gt;&lt;a href=&quot;#面试官：你是怎么处理vue项目中的错误的？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/filter/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/filter/</id>
-    <published>2021-08-24T08:03:52.496Z</published>
-    <updated>2021-08-24T08:04:18.050Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？&quot;&gt;&lt;a href=&quot;#面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：SPA首屏加载速度慢的怎么解决？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/first-page-time/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/first-page-time/</id>
-    <published>2021-08-24T08:03:16.898Z</published>
-    <updated>2021-08-24T08:03:42.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：SPA首屏加载速度慢的怎么解决？&quot;&gt;&lt;a href=&quot;#面试官：SPA首屏加载速度慢的怎么解决？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：v-if和v-for的优先级是什么？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/if-for/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/if-for/</id>
-    <published>2021-08-24T08:02:37.641Z</published>
-    <updated>2021-08-24T08:03:01.859Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：v-if和v-for的优先级是什么？&quot;&gt;&lt;a href=&quot;#面试官：v-if和v-for的优先级是什么？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：说说你对keep-alive的理解是什么？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/keepalive/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/keepalive/</id>
-    <published>2021-08-24T08:02:07.368Z</published>
-    <updated>2021-08-24T08:02:27.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：说说你对keep-alive的理解是什么？&quot;&gt;&lt;a href=&quot;#面试官：说说你对keep-alive的理解是什么？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：你知道vue中key的原理吗？说说你对它的理解</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/key/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/key/</id>
-    <published>2021-08-24T08:01:23.565Z</published>
-    <updated>2021-08-24T08:01:51.523Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：你知道vue中key的原理吗？说说你对它的理解&quot;&gt;&lt;a href=&quot;#面试官：你知道vue中key的原理吗？说说你对它的理解&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/lifecycle/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/lifecycle/</id>
-    <published>2021-08-24T08:00:27.134Z</published>
-    <updated>2021-08-24T08:00:50.540Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？&quot;&gt;&lt;a href=&quot;#面试官：请描述下你对vue生命周期的理解？在created和mounted这两个生命周期中请求数据有什么区别呢？&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：说说你对vue的mixin的理解，有什么应用场景？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/mixin/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/mixin/</id>
-    <published>2021-08-24T07:59:23.545Z</published>
-    <updated>2021-08-24T08:00:09.295Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：说说你对vue的mixin的理解，有什么应用场景？&quot;&gt;&lt;a href=&quot;#面试官：说说你对vue的mixin的理解，有什么应用场景？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：Vue常用的修饰符有哪些？有什么应用场景？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/modifier/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/modifier/</id>
-    <published>2021-08-24T07:58:19.598Z</published>
-    <updated>2021-08-24T07:58:54.503Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：Vue常用的修饰符有哪些有什么应用场景&quot;&gt;&lt;a href=&quot;#面试官：Vue常用的修饰符有哪些有什么应用场景&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="面试相关" scheme="https://libraxxx.github.io/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="Vue" scheme="https://libraxxx.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试官：Vue中的$nextTick有什么作用？</title>
-    <link href="https://libraxxx.github.io/2021/08/24/vue/nexttick/"/>
-    <id>https://libraxxx.github.io/2021/08/24/vue/nexttick/</id>
-    <published>2021-08-24T07:57:40.291Z</published>
-    <updated>2021-08-24T07:58:10.728Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;面试官：Vue中的-nextTick有什么作用？&quot;&gt;&lt;a href=&quot;#面试官：Vue中的-nextTick有什么作用？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
